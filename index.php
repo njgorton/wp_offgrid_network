@@ -1,1 +1,1 @@
-this is my custom theme and its badass
+<h1>this is my super snazzy custom theme!</h1>

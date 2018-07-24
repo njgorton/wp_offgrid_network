@@ -3,3 +3,10 @@
     Author: Nathaniel Gorton
     Version: 1.0
 */
+body { background-color: purple; color: orange; }
+
+h1 { color: blue; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3R5bGUuY3NzIiwic291cmNlcyI6WyJzdHlsZS5zY3NzIiwicGFydGlhbHMvX2Jhc2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7OztFQUlFO0FDSkYsQUFBQSxJQUFJLENBQUMsRUFDRCxnQkFBZ0IsRUFBRSxNQUFNLEVBQ3hCLEtBQUssRUFBRSxNQUFNLEdBQ2hCOztBQUVELEFBQUEsRUFBRSxDQUFDLEVBQUUsS0FBSyxFQUFFLElBQUksR0FBSSJ9 */
+
+/*# sourceMappingURL=style.css.map */
