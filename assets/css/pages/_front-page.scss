@@ -1,0 +1,909 @@
+//==========================ABOUT=============================
+.about {
+    background-color: $color-brown;
+    color: $color-dark;
+    padding: 7rem 5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        display: none;
+    }
+
+    &__text {
+        font-size: 2.1rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+}
+
+
+//==========================NEWS==============================
+.news {
+    background-image: url(./assets/img/cropRows-large.jpg);
+    background-size: 100% 100%;
+    padding-bottom: 10rem;
+    
+    @media only screen and (min-width: $bp-largest) {
+        background-image: url(./assets/img/cropRows-extraLarge.jpg);
+    }
+    
+    @media only screen and (max-width: $bp-medium-small) {
+        background-image: url(./assets/img/cropRows-small.jpg);
+    }
+    
+    &__heading-container {
+        background-color: rgba(0,0,0, .7);
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+        width: 100%; 
+        margin-bottom: 3rem;
+    }
+
+    &__heading {
+        font-family: $font-heading;
+        color: $color-orange;
+        font-size: 4rem;
+        margin-left: 5rem;
+        padding: 2rem 0;
+
+        @media only screen and (max-width: $bp-medium-small) {
+            margin-left: 2rem;
+            font-size: 3rem;
+        }
+    }
+
+    &__content {
+        padding: 0 5rem;
+        
+        @media only screen and (max-width: $bp-medium-large) {
+            padding: 0 3rem;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            padding: 0 5rem;
+        }
+        
+        .flickity-page-dots {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .flickity-page-dots .dot {
+            width: 1.5rem;
+            height: 1.5rem;
+            opacity: 1;
+            background: transparent;
+            border: 2px solid $color-white-dark;
+        }
+
+        .flickity-page-dots .dot.is-selected {
+            background: $color-white-dark;
+        }
+    }
+
+    &__btn {
+        display: block;
+        background-color: $color-orange;           
+        color: $color-white-dark;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;         
+        width: 25%;
+        font-size: 2.2rem;
+        padding: 1rem;
+        margin: 0 auto;
+        margin-top: 10rem;
+        transition: all .2s;
+
+        @media only screen and (max-width: $bp-medium) {
+            width: 40%;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            width: 50%;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            width: 60%;
+        }
+
+        &:hover {
+            background-color: $color-orange * .8;         
+            box-shadow: 0 1rem 2rem rgba(0,0,0, .5);
+            width: 35%;
+            transform: translateY(-3px);
+
+            @media only screen and (max-width: $bp-medium) {
+                width: 50%;
+            }
+
+            @media only screen and (max-width: $bp-smaller) {
+                width: 60%;
+            }
+
+            @media only screen and (max-width: $bp-smallest) {
+                width: 70%;
+            }
+        }
+    
+        &:active {
+            box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+            transform: translateY(0);
+        }
+    }
+}
+    
+.news-card {
+    width: 30%;
+    min-height: 50rem;
+    margin: 3rem 5rem 3rem 0;
+    background-color: rgba(0,0,0, .7);
+    box-shadow: 1rem 1rem 2rem rgba(0,0,0, .5);
+    border-radius: 2px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (max-width: $bp-medium-large) {
+        min-height: 45rem;
+        padding: 1.5rem;
+        margin-right: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        min-height: 50rem;
+        width: 50%;
+        padding: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        width: 65%;
+    }
+
+    @media only screen and (max-width: $bp-smaller) {
+        width: 100%;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+        min-height: 47rem;
+    }
+
+    &__img {
+        flex: 0 1 60%;
+        width: 100%;
+    }
+
+    &__content {
+        flex: 0 0 40%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__heading {
+        font-size: 2rem;
+        color: $color-tan;
+        margin: 1rem 0;
+        cursor: pointer;
+
+        @media only screen and (max-width: $bp-medium-large) {
+            font-size: 1.8rem;
+        }
+
+        &:hover {
+            color: $color-white-dark;
+            text-decoration: underline;
+        }
+    }
+
+    &__text {
+        font-size: 1.7rem;
+        color: $color-white-dark;
+    }
+
+    &__btn {        
+        font-size: 1.7rem;
+        border-bottom: 1px solid $color-orange;
+        padding: 5px;
+        position: absolute;
+        bottom: 5rem;
+        right: 5rem; 
+        
+        @media only screen and (max-width: $bp-medium-large) {
+            bottom: 3rem;
+            right: 3rem;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            bottom: 5rem;
+            right: 5rem;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            bottom: 3rem;
+            right: 3rem;
+        }
+
+        &:link,
+        &:visited {                       
+            text-decoration: none;
+            color: $color-tan;        
+        }
+
+        &:hover {
+            background-color: $color-orange;
+            color: $color-white-dark;
+        }
+    }
+}
+
+
+//==========================EVENTS==============================
+.events {
+    background: linear-gradient(to right, 
+    rgba($color-orange, .4), 
+    rgba($color-orange, .4)), 
+    url(./assets/img/events.png);
+    background-repeat: repeat;
+    padding-bottom: 10rem;
+    
+    &__heading-container {
+        background-color: rgba(0,0,0, .7);
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px); 
+        width: 100%; 
+        margin-bottom: 3rem;
+    }
+
+    &__heading {
+        font-family: $font-heading;
+        color: $color-orange;
+        font-size: 4rem;
+        margin-left: 5rem;
+        padding: 2rem 0;
+
+        @media only screen and (max-width: $bp-medium-small) {
+            margin: 0 2rem;
+            font-size: 3rem;
+        }
+    }
+
+    &__content {
+        padding: 5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5rem;
+        justify-items: center;
+
+        @media only screen and (max-width: $bp-larger) {
+            padding: 3rem;
+            grid-column-gap: 3rem;
+        }
+
+        @media only screen and (max-width: $bp-medium-large) {
+            grid-template-columns: 1fr;
+            justify-content: center;
+        }
+    }
+
+    &__btn {
+        display: block;
+        background-color: rgba(0,0,0, .7);
+        color: $color-tan;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;        
+        width: 25%;
+        font-size: 2.2rem;
+        padding: 1rem;
+        margin: 0 auto;
+        margin-top: 5rem;
+        transition: all .2s;
+
+        @media only screen and (max-width: $bp-medium) {
+            width: 40%;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            width: 50%;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            width: 60%;
+        }
+
+        &:hover {
+            background-color: $color-orange * .8;
+            color: $color-white-dark;
+            box-shadow: 0 1rem 2rem rgba(0,0,0, .5);
+            width: 35%;
+            transform: translateY(-3px);
+
+            @media only screen and (max-width: $bp-medium) {
+                width: 50%;
+            }
+
+            @media only screen and (max-width: $bp-smaller) {
+                width: 60%;
+            }
+
+            @media only screen and (max-width: $bp-smallest) {
+                width: 70%;
+            }
+        }
+    
+        &:active {
+            box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+            transform: translateY(0);
+        }
+    }
+}
+
+.events-card {
+    background-color: rgba(0,0,0, .7);
+    box-shadow: 1rem 1rem 2rem rgba(0,0,0, .5); 
+    display: flex;
+    border-radius: 2px;
+    position: relative; // for buttons
+    max-width: 62rem; 
+    max-height: 25rem;
+    
+    @media only screen and (max-width: $bp-medium-large) {
+        max-width: 80rem;
+
+        &:nth-last-child(1) {
+            display: none;
+        }
+
+        &:nth-last-child(2) {
+            display: none;
+        }
+    }
+
+    &:hover .events-card__img {
+        -webkit-filter: blur(2px) brightness(60%);
+        filter: blur(2px) brightness(60%);
+    }
+
+    &:hover .events-card__content {
+        -webkit-filter: blur(2px) brightness(60%);
+        filter: blur(2px) brightness(60%);
+    }
+
+    &:hover .events-card__btn {
+        opacity: 1;
+        transform: translateY(-10rem);    
+
+        @media only screen and (max-width: $bp-smaller) {
+            transform: translateY(-5rem);
+        }
+    }
+
+    &__img {
+        width: 100%;
+        max-width: 25rem;
+        max-height: 25rem;
+
+        @media only screen and (max-width: $bp-medium-large) {
+            max-width: 30rem;
+            max-height: 30rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            max-width: 25rem;
+            max-height: 25rem;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            max-width: 15rem;
+            max-height: 15rem;
+        }
+    }
+
+    &__content {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 2rem;
+
+        @media only screen and (max-width: $bp-smallest) {
+            margin: .5rem 1rem;
+        }
+    }
+
+    &__heading {
+        margin-top: 1rem;
+
+        h4 {
+            font-size: 2rem;
+            color: $color-brown;
+
+            @media only screen and (max-width: $bp-larger) {
+                font-size: 1.8rem;
+            }
+
+            @media only screen and (max-width: $bp-medium-large) {
+                font-size: 2.2rem;
+            }
+
+            @media only screen and (max-width: $bp-medium-small) {
+                font-size: 2rem;
+            }
+
+            @media only screen and (max-width: $bp-small) {
+                font-size: 1.8rem;
+            }
+
+            @media only screen and (max-width: $bp-smaller) {
+                font-size: 1.5rem;
+            }
+        }
+
+        h3 {
+            font-size: 2.2rem;
+            color: $color-tan;
+            margin: .5rem 0;
+
+            @media only screen and (max-width: $bp-medium-large) {
+                font-size: 2.5rem;
+            }
+
+            @media only screen and (max-width: $bp-medium-small) {
+                font-size: 2.2rem;
+            }
+
+            @media only screen and (max-width: $bp-small) {
+                font-size: 2rem;
+            }
+
+            @media only screen and (max-width: $bp-smaller) {
+                margin-top: 1rem;
+            }
+
+            @media only screen and (max-width: $bp-smallest) {
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    &__text {
+        font-size: 1.7rem;
+        color: $color-white-dark;
+        margin-top: 2rem;
+
+        @media only screen and (max-width: $bp-larger) {
+            margin-top: 1rem;
+        }
+
+        @media only screen and (max-width: $bp-medium-large) {
+            font-size: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-medium-small) {
+            font-size: 1.7rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.5rem;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            display: none;
+        }
+    }
+
+    &__btn-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__btn {        
+        &:link,
+        &:visited { 
+            background-color: $color-orange;
+            color: $color-white-dark;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+            cursor: pointer;           
+            text-decoration: none;            
+            font-size: 2.5rem;
+            padding: 10px;        
+            position: absolute;
+            display: inline-block;
+            opacity: 0;
+            bottom: 0;
+            left: 25%;
+            transition: all .2s ease-out;
+
+            @media only screen and (max-width: $bp-medium-large) {
+                left: 35%;
+            }
+
+            @media only screen and (max-width: $bp-medium-small) {
+                left: 30%;
+                font-size: 2.2rem;
+            }
+
+            @media only screen and (max-width: $bp-small) {
+                left: 25%;
+            }
+
+            @media only screen and (max-width: $bp-smaller) {
+                left: 20%;
+                font-size: 2rem;
+            }
+
+            @media only screen and (max-width: $bp-smallest) {
+                left: 12%;
+                font-size: 1.8rem;
+            }
+            
+            &:last-child {
+                margin-left: 15rem;
+
+                @media only screen and (max-width: $bp-smaller) {
+                    margin-left: 12rem;
+                }
+
+                @media only screen and (max-width: $bp-smallest) {
+                    margin-left: 11rem;
+                }
+            }
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $color-orange * .8;         
+        }
+    
+        &:focus {
+            opacity: 1;
+            transform: translateY(-10rem);    
+    
+            @media only screen and (max-width: $bp-smaller) {
+                transform: translateY(-5rem);
+            }
+        }
+    }
+}
+
+
+//========================COMMUNITY============================
+.community {
+    &__heading {
+        background-color: rgba(0,0,0, .7);
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px); 
+        width: 100%;
+        max-width: 1800px;
+        position: absolute;
+        z-index: 100; 
+
+        & h2 {
+            font-family: $font-heading;
+            color: $color-orange;
+            font-size: 4rem;
+            margin-left: 5rem;
+            padding: 2rem 0;
+
+            @media only screen and (max-width: $bp-medium-small) {
+                margin-left: 2rem;
+                font-size: 3rem;
+            }
+        }
+    }
+
+    &__content {
+        background-image: url(./assets/img/topo-map.png);
+        display: flex;
+
+        @media only screen and (max-width: $bp-medium) {
+            flex-direction: column;
+        }
+    }
+
+    &__left {
+        padding-top: 9rem;
+        flex: 0 0 50%;
+    }
+
+    &__right {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%);
+        background-color: rgba($color-green, .7);
+        flex:  0 0 50%;
+
+        @media only screen and (max-width: $bp-medium) {
+            -webkit-clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+        }
+    }
+}
+
+.forum {
+    padding-bottom: 5rem;
+
+    &__heading {
+        display: flex;
+        margin: 5rem auto;
+        max-width: 30rem;
+        cursor: pointer;
+        transition: all .2s;
+        text-shadow: 2px 2px 4px rgba(0,0,0, .15);
+
+        &:hover {
+            transform: scale(1.3) skewY(5deg);
+        }
+                
+        & h3 {
+            font-size: 2.5rem;
+            color: $color-orange;        
+        }
+
+        & h4 {
+            font-size: 1.6rem;
+            color: $color-brown;
+            align-self: flex-end;
+        }
+    }
+
+    &__post {
+        background-color: rgba(0,0,0, .75);
+        max-width: 100%;
+        padding: 2rem;
+        margin: 2rem;
+        border-radius: 10px;
+        box-shadow: 1rem 1rem 2rem rgba(0,0,0, .4);
+
+        @media only screen and (max-width: $bp-medium) {
+            max-width: 80%;
+            margin: 3rem auto;
+        }
+
+        &:nth-child(3) {
+            transform: translateX(7rem);
+
+            @media only screen and (max-width: $bp-large) {
+                transform: translateX(5rem);
+            }
+
+            @media only screen and (max-width: $bp-medium) {
+                transform: none;
+            }
+        }
+
+        &:nth-child(4) {
+            transform: translateX(14rem);
+
+            @media only screen and (max-width: $bp-large) {
+                transform: translateX(10rem);
+            }
+
+            @media only screen and (max-width: $bp-medium) {
+                transform: none;
+            }
+        }
+
+        &:nth-child(5) {
+            transform: translateX(21rem);
+
+            @media only screen and (max-width: $bp-large) {
+                transform: translateX(15rem);
+            }
+
+            @media only screen and (max-width: $bp-medium) {
+                transform: none;
+            }
+        }
+    }
+
+    &__post-title {
+        font-size: 2rem;
+        color: $color-tan;
+        cursor: pointer;
+
+        &:hover {
+            color: $color-white-dark;
+            text-decoration: underline;
+        }
+    }
+
+    &__post-details {
+        font-size: 1.6rem;
+        color: $color-brown;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid $color-orange;
+        padding: 1rem 0;
+        display: flex;
+
+        & span {
+            color: $color-orange;
+            font-size: 1.4rem;
+            cursor: pointer;
+            align-self: center;
+
+            &:hover {
+                color: $color-white-dark;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__user-img {
+        margin-left: 2rem;
+        margin-right: 1rem;
+        border-radius: 25%;
+        cursor: pointer;
+
+        &:hover + span {
+            color: $color-white-dark;
+            text-decoration: underline;
+        }
+    }
+
+    &__post-text {
+        font-size: 1.6rem;
+        color: $color-white-dark;
+    }
+}
+
+.online {
+    background-color: $color-dark;
+    border-radius: 10%;
+    margin-left: -10rem;
+    margin-top: -10rem;
+    width: 50rem;
+    height: 50rem;
+    position: relative; 
+    box-shadow: 1rem 1rem 2rem rgba(0,0,0, .3);  
+
+    @media only screen and (max-width: $bp-medium-large) {
+        width: 45rem;
+        height: 45rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        width: 40rem;
+        height: 40rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        width: 35rem;
+        height: 35rem;
+    }
+
+    &__container {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50% -55%);
+        border: 2px solid #86B94C;
+        border-radius: 10px;
+        padding: 2rem;
+
+        @media only screen and (max-width: $bp-medium-large) {
+            left: 40%;
+            transform: translate(-40% -55%);
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            left: 35%;
+            transform: translate(-35% -55%);
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 1rem;
+        }
+    }
+
+    &__user-count {
+        font-size: 2rem;
+        border-bottom: 1px solid currentColor;
+        color: $color-tan;
+        margin-bottom: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            color: $color-white-dark;
+        }
+    }
+
+    &__member-count {
+        font-size: 1.4rem;
+        color: $color-brown;
+        margin-bottom: .5rem;
+    }
+
+    &__guest-count {
+        font-size: 1.4rem;
+        color: $color-brown;
+    }
+}
+
+.members {
+    background-color: $color-dark;
+    border-radius: 10px;
+    max-width: 30rem;
+    float: right; 
+    padding: 2rem;  
+    margin-top: 10rem;
+    margin-right: 5rem; 
+    box-shadow: 1rem 1rem 2rem rgba(0,0,0, .3);  
+
+    @media only screen and (max-width: $bp-large) {
+        margin-right: 3rem; 
+    }
+
+    @media only screen and (max-width: $bp-medium-large) {
+        max-width: 26rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        max-width: 45rem;
+        margin: 5rem;
+    }
+
+    &__heading {
+        color: $color-tan;
+        font-size: 2rem;
+    }
+
+    &__updated {
+        color: $color-brown;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+
+    &__list {
+        border-top: 1px solid $color-orange;
+        border-bottom: 1px solid $color-orange;
+        padding: 1rem 0;
+
+        li:nth-last-of-type(1) img {
+            margin-left: 1rem;
+        }
+    }
+
+    &__user {
+        font-size: 1.6rem;
+        color: $color-orange;
+        margin: .5rem 0;
+        cursor: pointer;
+        display: flex;
+        
+        &:hover,
+        &:focus {
+            color: $color-white-dark;
+            text-decoration: underline;
+        }
+
+        & span {
+            color: $color-brown;
+            margin-left: auto;
+
+            &:hover {
+                color: $color-white-dark;
+            }
+        } 
+    }
+
+    &__img {
+        margin-left: 2rem;
+        margin-right: 1rem;
+        border-radius: 25%;
+    }
+
+    &__top-100 {
+        font-size: 1.6rem;
+        color: $color-brown;
+        cursor: pointer;
+        float: right;
+        margin-top: 1rem;
+
+        &:hover,
+        &:focus {
+            color: $color-white-dark;
+            text-decoration: underline;
+        }
+    }
+}

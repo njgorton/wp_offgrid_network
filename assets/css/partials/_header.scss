@@ -1,0 +1,95 @@
+.header {
+    background-image: linear-gradient(to top, 
+    rgba(0,0,0, .3), 
+    rgba(0,0,0, .5)),
+    url(./assets/img/hero-extraLarge.jpg);
+    background-size: 100% 100%;
+    height: 30rem;
+    font-family: $font-heading;
+    color: $color-orange;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    @media only screen and (max-width: $bp-large) {
+        background-image: linear-gradient(to top, 
+        rgba(0,0,0, .3), 
+        rgba(0,0,0, .5)),
+        url(./assets/img/hero-large.jpg);
+    }
+
+    @media only screen and (max-width: $bp-medium-large) {
+        background-image: linear-gradient(to top, 
+        rgba(0,0,0, .3), 
+        rgba(0,0,0, .5)),
+        url(./assets/img/hero.jpg);
+        padding: 0 5rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        background-image: linear-gradient(to top, 
+        rgba(0,0,0, .3), 
+        rgba(0,0,0, .5)),
+        url(./assets/img/hero-small.jpg);
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 0 2rem;
+    }
+
+    @media only screen and (max-width: $bp-smaller) {
+        background-image: linear-gradient(to top, 
+        rgba(0,0,0, .3), 
+        rgba(0,0,0, .5)),
+        url(./assets/img/hero-extraSmall.jpg);
+    }
+
+    &__heading-primary {
+        font-size: 7rem; 
+        transform: skewY(5deg);
+        margin-top: 2rem;
+        
+        @media only screen and (max-width: $bp-larger) {
+            font-size: 6.5rem;
+        }
+
+        @media only screen and (max-width: $bp-medium-large) {
+            font-size: 6rem;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 5.5rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            font-size: 4.5rem;
+        }
+    }
+
+    &__heading-secondary {
+        font-size: 4rem;
+        margin-top: 5rem;
+
+        @media only screen and (max-width: $bp-larger) {
+            font-size: 3.5rem;
+        }
+
+        @media only screen and (max-width: $bp-medium-large) {
+            font-size: 3rem;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            margin-top: 3rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+    }
+}

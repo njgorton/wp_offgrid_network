@@ -1,0 +1,268 @@
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: $color-dark;
+    color: $color-orange;
+    max-width: 1800px; // body max-width
+    padding-top: 1rem;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3rem;
+    grid-template-areas: "search profile"
+                         "list list";
+    
+    @media only screen and (max-width: $bp-medium) {
+        justify-content: start;
+        grid-gap: 1rem;
+        padding-bottom: .5rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "search ."
+                             "profile ." 
+                             "list list";
+    }
+
+
+    &__search {
+        grid-area: search;
+        width: 25%;
+        margin-left: 2rem;
+        position: relative;
+
+        @media only screen and (max-width: $bp-larger) {
+            width: 30%;
+        }
+
+        @media only screen and (max-width: $bp-medium-large) {
+            width: 35%;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            min-width: calc(20rem - 5px);            
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            margin-left: 1rem;
+        }
+
+        .search-text {
+            float: left;
+            width: 100%;
+            height: 3rem;
+            padding: 5px;       
+            color: $color-dark;
+            border: 3px solid $color-orange;
+            border-radius: 2px;
+            font-size: 1.5rem;          
+        }
+
+        .search-btn {
+            width: 4rem;
+            height: 3rem;
+            position: absolute;  
+            right: -3.5rem;
+            border: 1px solid $color-orange;
+            background: $color-orange;
+            text-align: center;
+            color: $color-dark;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 2rem;
+        }
+    }
+
+    &__user-profile {
+        grid-area: profile;
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        margin-right: 2rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            justify-self: start;
+            min-width: 25rem;
+            margin-right: 0;
+            margin-left: 2rem;
+            padding: 2px 0;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            margin-left: 1rem;
+        }
+
+        .user-text {
+            color: $color-tan;
+        }    
+
+        .user-name {
+            margin: 0 1rem;
+            color: $color-white-dark;
+            border-bottom: 1px solid $color-orange;
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+                color: $color-orange;
+                border-bottom: 1px solid $color-white-dark;
+            }
+        }
+
+        .user-img {
+            width: 100%;
+            max-width: 3rem;
+            max-height: 3rem;
+            border-radius: 25%;
+            cursor: pointer;    
+        }
+
+        .user-menu {
+            position: relative;
+            //overflow: visible;
+        }
+      
+        .user-menuIcon {
+            width: 3rem;
+            height: 3rem;
+            margin-left: 1rem;
+            border: 1px solid $color-tan;
+            border-radius: 5px;
+            cursor: pointer; 
+        } 
+        
+        .user-menuBadge {
+            position: absolute;
+            top: -7px;
+            right: -7px;
+            display: inline-block;
+            text-align: center;
+            min-width: 20px;
+            min-height: 20px;
+            border-radius: 50%;
+            background-color: $color-brown;
+            color: $color-white-dark;
+            cursor: pointer;
+        }
+    }
+
+    &__mobile {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $color-dark;
+        height: 7rem;
+        width: 7rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            // Hamburger nav only visible under 1000px vw         
+            display: block;        
+        }
+    }
+
+    &__list {
+        grid-area: list;      
+        justify-content: space-around;
+        font-size: 3rem;
+        font-family: $font-heading; 
+        padding-top: 1rem;
+        padding-bottom: 1.5rem;  
+        list-style: none;
+        display: none;
+        
+        @media only screen and (min-width: $bp-medium) {
+            display: flex !important;          
+        }
+
+        @media only screen and (max-width: $bp-medium) {            
+               width: 25%;
+               font-size: 4rem;
+               margin: 1rem auto;
+        }
+    }
+
+    &__item {
+        padding: 0 .5rem;
+        cursor: pointer;                    
+        display: inline-block;        
+        transition: all .2s ease-out; 
+        
+        @media only screen and (max-width: $bp-medium) {            
+            margin: 1rem 0;
+        }
+
+        &:hover {                                     
+            box-shadow: 0 1rem 2rem rgba(0,0,0, .4);
+            transform: rotate(-5deg) scale(1.2);
+        }
+
+        &:active {
+            box-shadow: 0 .5rem 1rem rgba(0,0,0, .4);
+            transform: rotate(0) scale(1.1);
+        }
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            text-decoration: none;
+            color: $color-orange;
+        }        
+    }
+}
+
+#nav-toggle {
+    position: absolute;
+    left: 0;
+    top: 35%;
+    cursor: pointer;
+    padding: 2rem;
+    padding-left: 0;
+
+    span,
+    span::before,
+    span::after {
+        height: 2px;
+        width: 4rem;
+        background: $color-orange;
+        position: absolute;
+        display: block;
+        content: '';
+        transition: transform .3s ease-in-out, hover .3s ease;
+    }
+
+    span::before {
+        top: -1rem;    
+    }
+
+    span::after {
+        bottom: -1rem      
+    }
+
+    &:hover span::before {
+        top: -1.2rem;
+    }
+
+    &:hover span::after {
+        top: 1.2rem;
+    }
+      
+    &.active span {
+        background-color: transparent;
+        
+        &::before,
+        &::after {
+            top: 0;
+            height: 2px;
+        }
+        
+        &::before {
+            transform: rotate(135deg);
+        }
+
+        &::after {
+            transform: rotate(-135deg);
+        }
+    }
+}
