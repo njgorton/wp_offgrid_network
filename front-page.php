@@ -17,78 +17,38 @@
         </div>
 
         <div class="news__content" data-flickity='{ "freeScroll": "true", "wrapAround": "true" }'>
-            <div class="news-card">            
-                <img src="img/fenced-chickens.jpg" alt="Chickens behind a fence." class="news-card__img">
+            <?php
+                $homepageNews = new WP_Query(array(
+                'posts_per_page' => 5,
+                'post_type' => 'news',
+                ));
+
+                while ($homepageNews->have_posts()) {
+                $homepageNews->the_post(); 
+            ?>
+
+            <div class="news-card">
+                <?php // Get meta data for feature img and store in $alt variable.
+                    $thumb_id = get_post_thumbnail_id(get_the_ID());
+                    $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true);
+                ?>
+
+                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo $alt; ?>" class="news-card__img">           
 
                 <div class="news-card__content">
                     <div class="news-card__heading">                
-                        <h3>Cage-Free vs Pastured: What's the Difference, Really?</h3>
+                        <h3><?php the_title(); ?></h3>
                     </div>
             
-                    <p class="news-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quam blanditiis aut esse aliquam iure...</p>
+                    <p class="news-card__text"><?php echo wp_trim_words(get_the_content(), 18); ?></p>
         
-                    <a href="#" class="news-card__btn">Read Article &rarr;</a>
+                    <a href="<?php the_permalink(); ?>" class="news-card__btn">Read Article &rarr;</a>
                 </div>           
             </div>
-        
-            <div class="news-card">
-                <img src="img/solar-panels.jpg" alt="Solar panels next to a vegetable garden." class="news-card__img">
-
-                <div class="news-card__content">
-                    <div class="news-card__heading">
-                        <h3>Yes, the New Solar Tech IS Worth that Hefty Price-tag!</h3>
-                    </div>
-            
-                    <p class="news-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quam blanditiis aut esse aliquam iure...</p>
-        
-                    <a href="#" class="news-card__btn">Read Article &rarr;</a>
-                </div>
-            </div>
-        
-            <div class="news-card">
-                <img src="img/milking-goat.jpg" alt="Person milking a goat on a milking stand." class="news-card__img">
-
-                <div class="news-card__content">
-                    <div class="news-card__heading">
-                        <h3>FDA is Milking Every Last Drop from Goat Dairy Farmers</h3>
-                    </div>
-            
-                    <p class="news-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quam blanditiis aut esse aliquam iure...</p>
-        
-                    <a href="#" class="news-card__btn">Read Article &rarr;</a>
-                </div>
-            </div>
-
-            <div class="news-card">        
-                <img src="img/tiny-home.jpg" alt="Tiny home made from old trailer container." class="news-card__img">
-
-                <div class="news-card__content">
-                    <div class="news-card__heading">
-                        <h3>Tiny Homes: Pre-Fab or DIY, Which is Really Cheaper?</h3>
-                    </div>
-            
-                    <p class="news-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quam blanditiis aut esse aliquam iure...</p>
-        
-                    <a href="#" class="news-card__btn">Read Article &rarr;</a>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <img src="img/well-pump.jpg" alt="Hand powered well pump." class="news-card__img">
-
-                <div class="news-card__content">
-                    <div class="news-card__heading">
-                        <h3>How Clean is Your Well Water?</h3>
-                    </div>
-            
-                    <p class="news-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quam blanditiis aut esse aliquam iure...</p>
-        
-                    <a href="#" class="news-card__btn">Read Article &rarr;</a>
-                </div>
-            </div>
+            <?php } ?>
         </div>
         
-        <button class="news__btn">See More News</button>
+        <a class="news__btn" href="<?php echo get_post_type_archive_link('news'); ?>">See More News</a>
     </section>
 
 

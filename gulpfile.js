@@ -202,7 +202,7 @@ gulp.task( 'browser-sync', function() {
 
     .pipe( filter( '**/*.css' ) ) // Filtering stream to only css files
     .pipe( browserSync.stream() )// Reloads style.min.css if that is enqueued.
-    .pipe( notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) )
+    //.pipe( notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) )
  });
 
 
