@@ -28,16 +28,11 @@
             ?>
 
             <div class="news-card">
-                <?php // Get meta data for feature img and store in $alt variable.
-                    $thumb_id = get_post_thumbnail_id(get_the_ID());
-                    $alt = get_post_meta($thumb_id, '_wp_attachment_image_alt', true);
-                ?>
-
-                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo $alt; ?>" class="news-card__img">           
+                <?php the_post_thumbnail('full', array('class' => 'news-card__img')); ?>         
 
                 <div class="news-card__content">
                     <div class="news-card__heading">                
-                        <h3><?php the_title(); ?></h3>
+                        <h3><a href="<?php the_permalink(); ?>" class="news-card__title-link"><?php the_title(); ?></a></h3>
                     </div>
             
                     <p class="news-card__text"><?php echo wp_trim_words(get_the_content(), 18); ?></p>

@@ -9,6 +9,11 @@
 @import "partials/header";
 @import "partials/navigation";
 
+@import "modules/page-breaks";
+@import "modules/cards";
+
 @import "pages/front-page";
 @import "pages/single-news";
 @import "pages/archive-news";
+@import "pages/author";
+@import "pages/category";

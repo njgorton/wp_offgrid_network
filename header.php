@@ -44,6 +44,6 @@
         <li class="navigation__item"><a href="#" class="navigation__link">Events</a></li>
         <li class="navigation__item"><a href="#" class="navigation__link">Forum</a></li>
         <li class="navigation__item"><a href="#" class="navigation__link">About</a></li>
-        <li class="navigation__item"><a href="#" class="navigation__link">Contact</a></li>
+        <!-- <li class="navigation__item"><a href="#" class="navigation__link">Contact</a></li> -->
     </ul>
 </nav>
