@@ -1,6 +1,7 @@
 .cards-related {
     width: 30%;
     margin-right: 5rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
 
@@ -17,7 +18,8 @@
     }
 
     @media only screen and (max-width: $bp-smaller) {
-        width: 100%;
+        width: 80%;
+        margin-right: 5rem;
     }
 
     &__img {

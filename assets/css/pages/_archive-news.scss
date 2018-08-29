@@ -1,17 +1,49 @@
 .news-archive {
-    background: linear-gradient(to right, rgba($color-white-light *.8, .9), rgba($color-white-light *.8, .7), rgba($color-white-light, .2)),
+    background: linear-gradient(to right, rgba($color-dark, .5), rgba($color-dark, .5), rgba($color-dark, .2)),
     url(./assets/img/honeycomb.png);
     padding: 10rem 20rem;
+
+    @media only screen and (max-width: $bp-larger) {
+        padding: 10rem;
+    }
+
+    @media only screen and (max-width: $bp-medium-large) {
+        padding: 10rem 5rem;
+    }
+
+    @media only screen and (max-width: $bp-medium-small) {
+        padding: 10rem 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 10rem;
+    }
+
+    @media only screen and (max-width: $bp-smaller) {
+        padding: 10rem 5rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+        padding: 10rem 2rem;
+    }
 
     &__heading {
         font-size: 5rem;
         font-family: $font-heading;
         text-align: center;
         color: $color-orange;
-        border-top: 1px solid $color-dark;
-        border-bottom: 1px solid $color-dark;
-        padding: 1rem 0;
-        margin-bottom: 12rem;
+        padding: 5rem 0;
+        background: rgba(0,0,0, .5);
+        box-shadow: -1rem 1rem 2rem rgba(0,0,0, .3);
+
+        @media only screen and (max-width: $bp-medium-small) {
+            font-size: 4rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 3.5rem;
+            margin-bottom: 7rem;
+        }
     }
 
     &__pagination {
@@ -19,6 +51,11 @@
         margin-top: 5rem;
         margin-bottom: 5rem;
         color: $color-dark;
+
+        @media only screen and (max-width: $bp-small) {
+            margin: 3rem;
+            text-align: center;
+        }
 
         .page-numbers {
             display: inline-block;
@@ -29,7 +66,7 @@
             border-radius: 4px;
             background: $color-dark;
             color: $color-tan;
-            box-shadow: .5rem .5rem 1rem rgba(0,0,0, .3);
+            box-shadow: -.5rem .5rem 1rem rgba(0,0,0, .3);
         }
         .page-numbers.current,
         a.page-numbers:hover {
@@ -39,40 +76,109 @@
     }
 
     &__section {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        grid-auto-rows: min-content;
-        grid-gap: 5rem;
-        padding-bottom: 5rem;
+        display: flex;
+        background: rgba($color-white-light, .3);
+        box-shadow: -1rem 1rem 2rem rgba(0,0,0, .3);
+        margin-top: 5rem;
+        margin-bottom: 7rem;
 
-        &:not(:first-of-type) {
-            padding-top: 10rem;
+        @media only screen and (max-width: $bp-small) {
+            margin-top: 3rem;
+            margin-bottom: 5rem;
         }
     }
 
     &__feature-img {
-        max-width: 100%;
+        flex: 1;
+        width: 100%;
         height: 100%;
-        margin-right: 3rem;
-        box-shadow: 1rem 1rem 2rem rgba(0,0,0, .3);
+        max-width: 300px;
+        max-height: 300px;  
+
+        @media only screen and (min-width: $bp-largest) {
+            max-width: 400px;
+            max-height: 400px;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            max-width: 250px;
+            max-height: 250px;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            max-width: 125px;
+            max-height: 125px;
+        }
     }
 
     &__content {
-        padding-right: 5rem;
+        flex: 1;
+        padding: 2rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: min-content;
-        grid-template-areas: 
+        grid-template-areas:
+                            "details details" 
                             "title title"
-                            "details details"
                             "text text"
                             "cat btn";
+
+        @media only screen and (max-width: $bp-medium-small) {
+            padding: 1rem;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            padding-bottom: 0;
+        }
+    }
+
+    &__post-details {
+        grid-area: details;
+
+        a {
+            &:link,
+            &:visited {
+                color: black;
+                text-decoration: none;
+                font-size: 1.7rem;
+                transition: all .1s ease;
+
+                @media only screen and (max-width: $bp-medium) {
+                    font-size: 1.5rem;
+                }
+
+                @media only screen and (max-width: $bp-small) {
+                    font-size: 1.4rem;
+                }
+    
+                & span {
+                   text-decoration: underline; 
+                }
+            }
+    
+            &:hover span {
+                text-decoration: none;
+                color: $color-orange;
+            }
+        }
     }
 
     &__title {
         grid-area: title;
         font-size: 3rem;
-        margin-bottom: 1rem;
+        margin: 1rem 0;
+
+        @media only screen and (max-width: $bp-medium-large) {
+            font-size: 2.5rem;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 2.2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
     }
 
     &__title-link {
@@ -88,38 +194,30 @@
         }
     }
 
-    &__post-details {
-        &:link,
-        &:visited {
-            grid-area: details;
-            color: black;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all .1s ease;
-
-            & span {
-               text-decoration: underline; 
-            }
-        }
-
-        &:hover span {
-            text-decoration: none;
-            color: $color-orange;
-        }
-    }
-
     &__text {
         grid-area: text;
         font-size: 1.7rem;
         color: $color-dark;
-        margin-top: 3rem;
-        margin-bottom: 1rem;
+        margin: 2rem 0;
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            display: none;
+        }
     }
 
     &__categories {
         grid-area: cat;
         color: $color-green;
         font-size: 1.5rem;
+
+        @media only screen and (max-width: $bp-small) {
+            display: none;
+        }
 
         a {
             &:link,
@@ -146,8 +244,11 @@
             font-size: 1.7rem;
             border-bottom: 1px solid $color-orange;
             padding: 5px;
-            margin-top: 5rem;
             transition: all .1s ease;
+
+            @media only screen and (max-width: $bp-small) {
+                display: none;
+            }
         }
 
         &:hover {
@@ -168,7 +269,7 @@
             cursor: pointer;
             white-space: nowrap; 
             text-align: center;        
-            width: 25%;
+            width: 30%;
             font-size: 2.2rem;
             padding: 1rem;
             margin: 0 auto;
@@ -178,12 +279,8 @@
             @media only screen and (max-width: $bp-medium) {
                 width: 40%;
             }
-    
-            @media only screen and (max-width: $bp-smaller) {
-                width: 50%;
-            }
-    
-            @media only screen and (max-width: $bp-smallest) {
+
+            @media only screen and (max-width: $bp-small) {
                 width: 60%;
             }
         }
@@ -191,18 +288,14 @@
         &:hover {
             background-color: $color-orange * .8;         
             box-shadow: 0 1rem 2rem rgba(0,0,0, .5);
-            width: 35%;
+            width: 40%;
             transform: translateY(-3px);
 
             @media only screen and (max-width: $bp-medium) {
                 width: 50%;
             }
 
-            @media only screen and (max-width: $bp-smaller) {
-                width: 60%;
-            }
-
-            @media only screen and (max-width: $bp-smallest) {
+            @media only screen and (max-width: $bp-small) {
                 width: 70%;
             }
         }

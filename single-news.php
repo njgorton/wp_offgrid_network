@@ -20,7 +20,7 @@
 
         <hr class="hr_style_1">
 
-        <?php the_post_thumbnail('full', array('class' => 'news-article__feature-img')); ?>
+        <?php the_post_thumbnail('news-large', array('class' => 'news-article__feature-img')); ?>
 
         <div class="news-article__main-content"><?php the_content(); ?></div>
 
