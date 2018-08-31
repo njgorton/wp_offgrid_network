@@ -209,6 +209,12 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .news-archive__home-btn:link,.news-archive__home-btn:visited{display:block;text-decoration:none;background-color:#f29130;color:#e1e4d9;box-shadow:0 .5rem 1rem rgba(0,0,0,0.5);border:0;cursor:pointer;white-space:nowrap;text-align:center;width:30%;font-size:2.2rem;padding:1rem;margin:0 auto;margin-top:10rem;-webkit-transition:all .2s;transition:all .2s}
 .news-archive__home-btn:hover{background-color:#c27426;box-shadow:0 1rem 2rem rgba(0,0,0,0.5);width:40%;-webkit-transform:translateY(-3px);-ms-transform:translateY(-3px);transform:translateY(-3px)}
 .news-archive__home-btn:active{box-shadow:0 .5rem 1rem rgba(0,0,0,0.5);-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
+.category__listCats{display:inline-block}
+.category__listCats h3{font-size:3rem;color:#ba5a31;margin-bottom:1rem}
+.category__listCats ul{font-size:2rem;list-style:none}
+.category__listCats ul li{margin-top:1rem}
+.category__listCats ul li a{color:#353535}
+.category__listCats ul li a:hover{color:#ba5a31;text-decoration:none}
 @media only screen and (min-width:50em){.navigation__list{display:-webkit-box !important;display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}
 }@media only screen and (min-width:100em){html{font-size:75%}
 .news{background-image:url(./assets/img/cropRows-extraLarge.jpg)}
@@ -337,6 +343,8 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .news-archive__btn:link,.news-archive__btn:visited{display:none}
 .news-archive__home-btn:link,.news-archive__home-btn:visited{width:60%}
 .news-archive__home-btn:hover{width:70%}
+.category__listCats h3{font-size:2.5rem}
+.category__listCats ul{font-size:1.8rem}
 }@media only screen and (max-width:31.25em){.footer__list{max-height:auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .footer__item{margin:1rem}
 .footer__callout{margin-top:10rem}

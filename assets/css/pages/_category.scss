@@ -1,0 +1,41 @@
+// =====================================================================
+// The rest of category.php style rules are used from _archive-news.scss
+// =====================================================================
+
+.category {
+    &__listCats {
+        display: inline-block;       
+
+        h3 {
+            font-size: 3rem;
+            color: $color-brown;
+            margin-bottom: 1rem;
+
+            @media only screen and (max-width: $bp-small) {
+                font-size: 2.5rem;
+            }
+        }
+
+        ul {
+           font-size: 2rem;
+           list-style: none;
+
+           @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
+           
+           li {
+               margin-top: 1rem;
+               
+                a {
+                    color: $color-dark;
+        
+                    &:hover {
+                        color: $color-brown;
+                        text-decoration: none;
+                    }
+                }
+           }
+        }
+    }
+}
