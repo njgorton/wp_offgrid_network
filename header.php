@@ -43,7 +43,6 @@
         <li class="navigation__item"><a href="<?php echo get_post_type_archive_link('news'); ?>" class="navigation__link">News</a></li>
         <li class="navigation__item"><a href="#" class="navigation__link">Events</a></li>
         <li class="navigation__item"><a href="#" class="navigation__link">Forum</a></li>
-        <li class="navigation__item"><a href="#" class="navigation__link">About</a></li>
-        <!-- <li class="navigation__item"><a href="#" class="navigation__link">Contact</a></li> -->
+        <li class="navigation__item"><a href="<?php echo site_url('/about-ogn'); ?>" class="navigation__link">About</a></li>
     </ul>
 </nav>
