@@ -11,15 +11,8 @@
     <hr class="hr_style_1">
 
     <?php 
-    $category = get_category( get_query_var( 'cat' ) );
-    $cat_id = $category->cat_ID;
-    $args = array ( 'post_type' => array( 
-        'news', 'posts' ),
-        'cat' =>  $cat_id);
-        //'posts_per_page' => -1);
-    $myPosts = get_posts( $args ); 
-    foreach( $myPosts as $post ) :	setup_postdata($post);
-    ?>
+    while(have_posts()) {
+        the_post(); ?>
 
         <section class="news-archive__section">
             <?php the_post_thumbnail('news-square', array('class' => 'news-archive__feature-img')); ?>
@@ -37,7 +30,7 @@
             </div>
         </section>
 
-    <?php endforeach; ?>
+    <?php } ?>
 
     <hr class="hr_style_1">
 
