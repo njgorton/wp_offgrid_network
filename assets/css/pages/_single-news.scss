@@ -187,21 +187,10 @@
         }
     }
 
-    &__end-mark {
-        color: $color-orange;
-        font-size: 5rem;
-        text-align: center;
-        margin-top: 3rem;
-
-        @media only screen and (max-width: $bp-small) {
-            font-size: 3rem;
-        }
-    }
-
     &__more-from-category {
         color: $color-dark;
         font-size: 2.6rem;
-        margin-top: 5rem;
+        margin-top: 2rem;
         margin-bottom: 5rem;
         border-bottom: 1px solid $color-dark;
         padding: 1rem 0;

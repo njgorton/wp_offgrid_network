@@ -24,7 +24,7 @@
 
         <div class="news-article__main-content"><?php the_content(); ?></div>
 
-        <div class="news-article__end-mark">
+        <div class="end-mark">
             <i class="fas fa-feather-alt"></i>
         </div>
 
