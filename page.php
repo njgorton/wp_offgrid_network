@@ -5,11 +5,11 @@
     while(have_posts()) {
         the_post(); ?>
 
-        <h2 class="generic-page__title"><?php the_title(); ?></h2>
+        <h2 class="generic-page__title post-title"><?php the_title(); ?></h2>
 
         <hr class="hr_style_1">
 
-        <div class="generic-page__content">
+        <div class="generic-page__content post-content">
             <?php the_content(); ?>
         </div>
 

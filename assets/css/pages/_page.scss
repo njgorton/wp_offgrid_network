@@ -16,29 +16,10 @@
     }
 
     &__title {
-        font-size: 4rem;
-        color: $color-brown;
-        text-align: center;
         margin: 5rem auto;
-        width: 70%;
-
-        @media only screen and (max-width: $bp-medium-small) {
-            width: 100%;
-            font-size: 3rem;
-        }
     }
 
     &__content {
-        font-size: 2.1rem;
-        line-height: 1.5;
         margin-top: 5rem;
-
-        @media only screen and (max-width: $bp-small) {
-            font-size: 1.8rem;
-        }
-
-        h2,h3,h4,h5,h6 {
-            color: $color-dark;
-        }
     }
 }

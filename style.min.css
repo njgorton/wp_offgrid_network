@@ -61,8 +61,6 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 #nav-toggle.active span::before,#nav-toggle.active span::after{top:0;height:2px}
 #nav-toggle.active span::before{-webkit-transform:rotate(135deg);-ms-transform:rotate(135deg);transform:rotate(135deg)}
 #nav-toggle.active span::after{-webkit-transform:rotate(-135deg);-ms-transform:rotate(-135deg);transform:rotate(-135deg)}
-.hr_style_1{border:0;height:1px;background-image:-webkit-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));background-image:linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0))}
-.end-mark{color:#f29130;font-size:5rem;text-align:center;margin:3rem 0}
 .btn-primary:link,.btn-primary:visited{display:block;text-decoration:none;background-color:#f29130;color:#e1e4d9;box-shadow:0 .5rem 1rem rgba(0,0,0,0.5);border:0;cursor:pointer;white-space:nowrap;text-align:center;width:30%;font-size:2.2rem;padding:1rem;margin:0 auto;margin-top:10rem;-webkit-transition:all .2s;transition:all .2s}
 .btn-primary:hover{background-color:#c27426;box-shadow:0 1rem 2rem rgba(0,0,0,0.5);width:40%;-webkit-transform:translateY(-3px);-ms-transform:translateY(-3px);transform:translateY(-3px)}
 .btn-primary:active{box-shadow:0 .5rem 1rem rgba(0,0,0,0.5);-webkit-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0)}
@@ -71,6 +69,15 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .cards-related__heading{font-size:2rem;color:#ba5a31;text-decoration:underline;margin:1rem 0}
 .cards-related__heading:hover{color:#f29130;text-decoration:none}
 .cards-related__title-link:link,.cards-related__title-link:visited{text-decoration:none;color:inherit}
+.hr_style_1{border:0;height:1px;background-image:-webkit-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0));background-image:linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0))}
+.end-mark{color:#f29130;font-size:5rem;text-align:center;margin:3rem 0}
+.post-title{font-size:4rem;color:#ba5a31;text-align:center;width:70%}
+.post-content{font-size:2.1rem;line-height:1.5}
+.post-content img{float:right;margin-left:3rem;margin-bottom:3rem;width:100%;max-width:500px;max-height:333px;border-radius:2px;box-shadow:1rem 1rem 2rem rgba(0,0,0,0.3)}
+.post-content h2,.post-content h3,.post-content h4,.post-content h5,.post-content h6{color:#e59f71;background:#353535;padding:0 1.5rem;margin-top:3rem;margin-bottom:1rem;display:inline-block;border-radius:2px}
+.post-content ul{list-style:none}
+.post-content ul li{margin:1.2rem}
+.post-content ul li:before{content:"\00bb";color:#f29130;margin-right:1.5rem;background-color:#353535;padding:0 7px 3px 7px;border-radius:50%}
 .about{background-color:#ba5a31;color:#353535;padding:7rem 5rem}
 .about__text{font-size:2.1rem;line-height:1.5;text-align:center}
 .news{background-image:url(./assets/img/cropRows-large.jpg);background-size:100% 100%;padding-bottom:10rem}
@@ -156,7 +163,7 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .members__top-100{font-size:1.6rem;color:#ba5a31;cursor:pointer;float:right;margin-top:1rem}
 .members__top-100:hover,.members__top-100:focus{color:#e1e4d9;text-decoration:underline}
 .news-article{background:-webkit-linear-gradient(left,rgba(204,204,204,0.9),rgba(204,204,204,0.7),rgba(255,255,255,0.2)),url(./assets/img/honeycomb.png);background:linear-gradient(to right,rgba(204,204,204,0.9),rgba(204,204,204,0.7),rgba(255,255,255,0.2)),url(./assets/img/honeycomb.png);padding:10rem 20rem}
-.news-article__title{font-size:4rem;color:#ba5a31;text-align:center;margin:0 auto;width:70%}
+.news-article__title{margin:0 auto}
 .news-article__post-details{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-top:7rem;margin-bottom:10rem}
 .news-article__nav-category:link,.news-article__nav-category:visited{background:#539b00;color:#353535;border-radius:4px;box-shadow:1rem 1rem 1rem rgba(0,0,0,0.3);font-size:1.5rem;white-space:nowrap;text-decoration:none;padding:1.5rem;position:absolute;top:0;left:0;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
 .news-article__posted-by:link,.news-article__posted-by:visited{background:#353535;color:#e1e4d9;border-radius:4px;box-shadow:1rem 1rem 1rem rgba(0,0,0,0.3);font-size:1.5rem;white-space:nowrap;text-decoration:none;padding:1.5rem;position:absolute;top:4rem;left:4rem;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
@@ -166,7 +173,6 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .news-article__categories a:hover{text-decoration:none;color:#f29130}
 .news-article__feature-img,.news-article__main-content{margin-top:10rem}
 .news-article__feature-img{float:right;margin-left:3rem;margin-bottom:3rem;box-shadow:1rem 1rem 2rem rgba(0,0,0,0.3)}
-.news-article__main-content{font-size:2.1rem;line-height:1.5}
 .news-article__btn-box{text-align:center}
 .news-article__btn:link,.news-article__btn:visited{display:inline-block;text-decoration:none;color:#f29130;font-size:2rem;border-bottom:1px solid #f29130;padding:5px;margin:0 2rem;-webkit-transition:all .1s ease;transition:all .1s ease}
 .news-article__btn:hover{background-color:#f29130;color:#e1e4d9}
@@ -217,9 +223,8 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .category__listCats ul li a{color:#353535}
 .category__listCats ul li a:hover{color:#ba5a31;text-decoration:none}
 .generic-page{background:-webkit-linear-gradient(left,rgba(204,204,204,0.9),rgba(204,204,204,0.7),rgba(255,255,255,0.2)),url(./assets/img/honeycomb.png);background:linear-gradient(to right,rgba(204,204,204,0.9),rgba(204,204,204,0.7),rgba(255,255,255,0.2)),url(./assets/img/honeycomb.png);padding:10rem 20rem}
-.generic-page__title{font-size:4rem;color:#ba5a31;text-align:center;margin:5rem auto;width:70%}
-.generic-page__content{font-size:2.1rem;line-height:1.5;margin-top:5rem}
-.generic-page__content h2,.generic-page__content h3,.generic-page__content h4,.generic-page__content h5,.generic-page__content h6{color:#353535}
+.generic-page__title{margin:5rem auto}
+.generic-page__content{margin-top:5rem}
 @media only screen and (min-width:50em){.navigation__list{display:-webkit-box !important;display:-webkit-flex !important;display:-ms-flexbox !important;display:flex !important}
 }@media only screen and (min-width:100em){html{font-size:75%}
 .news{background-image:url(./assets/img/cropRows-extraLarge.jpg)}
@@ -248,6 +253,7 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .navigation__search{width:35%}
 .cards-related{margin-right:3rem}
 .cards-related__heading{font-size:1.8rem}
+.post-content img{max-width:350px;max-height:233px}
 .news__content{padding:0 3rem}
 .news-card{min-height:45rem;padding:1.5rem;margin-right:3rem}
 .news-card__heading{font-size:1.8rem}
@@ -283,6 +289,7 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .btn-primary:link,.btn-primary:visited{width:40%}
 .btn-primary:hover{width:50%}
 .cards-related{width:50%}
+.post-content img{float:none;display:block;margin:0 auto;margin-bottom:3rem}
 .about{display:none}
 .news__btn{width:40%}
 .news__btn:hover{width:50%}
@@ -305,7 +312,8 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .news-archive__post-details a:link,.news-archive__post-details a:visited{font-size:1.5rem}
 .news-archive__title{font-size:2.2rem}
 .news-archive__text{font-size:1.5rem;margin:1rem 0}
-}@media only screen and (max-width:43.75em){.news{background-image:url(./assets/img/cropRows-small.jpg)}
+}@media only screen and (max-width:43.75em){.post-title{width:100%;font-size:3rem}
+.news{background-image:url(./assets/img/cropRows-small.jpg)}
 .news__heading{margin-left:2rem;font-size:3rem}
 .events__heading{margin:0 2rem;font-size:3rem}
 .events-card__heading h4{font-size:2rem}
@@ -313,20 +321,19 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .events-card__text{font-size:1.7rem}
 .events-card__btn:link,.events-card__btn:visited{left:30%;font-size:2.2rem}
 .community__heading h2{margin-left:2rem;font-size:3rem}
-.news-article__title{width:100%;font-size:3rem}
 .news-article__post-details{margin-top:5rem;margin-bottom:15rem}
 .news-article__feature-img{max-width:350px;max-height:233px}
 .news-archive{padding:10rem 2rem}
 .news-archive__heading{font-size:4rem}
 .news-archive__content{padding:1rem}
-.generic-page__title{width:100%;font-size:3rem}
 }@media only screen and (max-width:37.5em){.header{padding:0 2rem}
 .header__heading-primary{font-size:5rem;text-align:center}
 .header__heading-secondary{font-size:2.5rem;text-align:center}
-.end-mark{font-size:3rem}
 .btn-primary:link,.btn-primary:visited{width:60%}
 .btn-primary:hover{width:70%}
 .cards-related{width:65%}
+.end-mark{font-size:3rem}
+.post-content{font-size:1.8rem}
 .news-card{width:65%}
 .events-card__img{max-width:25rem;max-height:25rem}
 .events-card__heading h4{font-size:1.8rem}
@@ -337,7 +344,6 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .online__container{padding:1rem}
 .news-article{padding:10rem 5rem}
 .news-article__feature-img{max-width:300px;max-height:200px}
-.news-article__main-content{font-size:1.8rem}
 .news-article__related-content .flickity-prev-next-button.previous{left:-38px}
 .news-article__related-content .flickity-prev-next-button.next{right:-38px}
 .news-archive{padding:10rem}
@@ -353,7 +359,6 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .category__listCats h3{font-size:2.5rem}
 .category__listCats ul{font-size:1.8rem}
 .generic-page{padding:10rem 5rem}
-.generic-page__content{font-size:1.8rem}
 }@media only screen and (max-width:31.25em){.footer__list{max-height:auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .footer__item{margin:1rem}
 .footer__callout{margin-top:10rem}
@@ -363,6 +368,7 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .navigation__search{margin-left:1rem}
 .navigation__user-profile{margin-left:1rem}
 .cards-related{width:80%;margin-right:5rem}
+.post-content img{max-width:300px;max-height:200px}
 .news__content{padding:0 5rem}
 .news__btn{width:50%}
 .news__btn:hover{width:60%}
