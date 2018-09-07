@@ -5,7 +5,7 @@
     while(have_posts()) {
         the_post(); ?>
 
-        <h2 class="news-article__title"><?php the_title(); ?></h2>
+        <h2 class="news-article__title post-title"><?php the_title(); ?></h2>
 
         <div class="news-article__post-details">
             <a href="<?php echo get_post_type_archive_link('news'); ?>" class="news-article__nav-category" id="first">
@@ -22,9 +22,9 @@
 
         <?php the_post_thumbnail('news-large', array('class' => 'news-article__feature-img')); ?>
 
-        <div class="news-article__main-content"><?php the_content(); ?></div>
+        <div class="news-article__main-content post-content"><?php the_content(); ?></div>
 
-        <div class="news-article__end-mark">
+        <div class="end-mark">
             <i class="fas fa-feather-alt"></i>
         </div>
 

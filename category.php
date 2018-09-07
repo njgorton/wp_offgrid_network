@@ -48,7 +48,7 @@
         </ul>
     </div>
 
-    <a href="<?php echo site_url('/'); ?>" class="news-archive__home-btn">Home</a>
+    <a href="<?php echo site_url('/'); ?>" class="btn-primary">Home</a>
 
 </main>
 

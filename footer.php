@@ -1,11 +1,11 @@
 <!-- ===========================FOOTER================================= -->
 <footer class="footer">            
     <ul class="footer__list">
-        <li class="footer__item" tabindex="0">Site Rules</li>
-        <li class="footer__item" tabindex="0">Terms</li>
-        <li class="footer__item" tabindex="0">Privacy</li>
-        <li class="footer__item" tabindex="0">Support</li>
-        <li class="footer__item" tabindex="0">Contact</li>
+        <li class="footer__item"><a href="<?php echo site_url('/site-rules'); ?>">Site Rules</a></li>
+        <li class="footer__item"><a href="<?php echo site_url('/terms'); ?>">Terms</a></li>
+        <li class="footer__item"><a href="<?php echo site_url('/privacy-policy'); ?>">Privacy</a></li>
+        <li class="footer__item"><a href="<?php echo site_url('/support'); ?>">Support</a></li>
+        <li class="footer__item"><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
     </ul>
 
     <div class="footer__right">                
