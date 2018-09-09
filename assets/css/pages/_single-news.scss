@@ -16,16 +16,7 @@
     }
     
     &__title {
-        font-size: 4rem;
-        color: $color-brown;
-        text-align: center;
-        margin: 0 auto;
-        width: 70%;
-
-        @media only screen and (max-width: $bp-medium-small) {
-            width: 100%;
-            font-size: 3rem;
-        }
+        margin: 0 auto;   
     }
 
     &__post-details {
@@ -154,15 +145,6 @@
             max-height: 167px;
         }
     }
-    
-    &__main-content {
-        font-size: 2.1rem;
-        line-height: 1.5;
-
-        @media only screen and (max-width: $bp-small) {
-            font-size: 1.8rem;
-        }
-    }
 
     &__btn-box {
         text-align: center;
@@ -187,21 +169,10 @@
         }
     }
 
-    &__end-mark {
-        color: $color-orange;
-        font-size: 5rem;
-        text-align: center;
-        margin-top: 3rem;
-
-        @media only screen and (max-width: $bp-small) {
-            font-size: 3rem;
-        }
-    }
-
     &__more-from-category {
         color: $color-dark;
         font-size: 2.6rem;
-        margin-top: 5rem;
+        margin-top: 2rem;
         margin-bottom: 5rem;
         border-bottom: 1px solid $color-dark;
         padding: 1rem 0;
