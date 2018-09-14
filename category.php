@@ -4,7 +4,7 @@
 
     <h2 class="news-archive__heading">Category: <?php single_cat_title(); ?></h2>
 
-    <div class="news-archive__pagination">
+    <div class="pagination">
         <?php echo paginate_links(); ?>
     </div>
 
@@ -34,7 +34,7 @@
 
     <hr class="hr_style_1">
 
-    <div class="news-archive__pagination">
+    <div class="pagination">
         <?php echo paginate_links(); ?>
     </div>
 

@@ -57,7 +57,7 @@
         <?php
         $today = date('Ymd');
         $homepageEvents = new WP_Query(array(
-          'posts_per_page' => 6,
+          'posts_per_page' => 4,
           'post_type' => 'events',
           'meta_key' => 'event_date',
           'orderby' => 'meta_value_num',
@@ -90,7 +90,15 @@
                         <h3><?php the_title(); ?></h3>
                     </div>
             
-                    <p class="events-card__text"><?php echo wp_trim_words(get_the_content(), 18); ?></p>   
+                    <p class="events-card__text">
+                        <?php 
+                            if (has_excerpt()) {
+                                echo get_the_excerpt();
+                            } else {
+                                echo wp_trim_words(get_the_content(), 18); 
+                            }
+                        ?>
+                    </p>   
                 </div>
                 
                 <div class="events-card__btn-container">
@@ -102,7 +110,7 @@
         <?php } wp_reset_postdata(); ?>
         </div>
 
-        <a class="events__btn" href="<?php echo get_post_type_archive_link('events'); ?>">See Full Schedule!</a>
+        <a class="btn-secondary" href="<?php echo get_post_type_archive_link('events'); ?>">See Full Schedule!</a>
     </section>
 
 

@@ -5,13 +5,13 @@
     while(have_posts()) {
         the_post(); ?>
 
-        <h2 class="news-article__title"><?php the_title(); ?></h2>
+        <h2 class="post-title"><?php the_title(); ?></h2>
 
         <div class="news-article__post-details">
             <a href="<?php echo get_post_type_archive_link('events'); ?>" class="news-article__nav-category" id="first">
             <i class="far fa-calendar-alt"></i> Upcoming Events
             </a>
-            <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="news-article__posted-by" id="second">
+            <a href="<?php echo site_url('/event-registration?events=' . $post->ID . ''); ?>" class="news-article__posted-by" id="second">
                 Sign up for <span><?php the_title(); ?></span>
             </a>
         </div>
@@ -20,9 +20,9 @@
 
         <?php the_post_thumbnail('news-large', array('class' => 'news-article__feature-img')); ?>
 
-        <div class="news-article__main-content"><?php the_content(); ?></div>
+        <div class="news-article__main-content post-content"><?php the_content(); ?></div>
 
-        <div class="news-article__end-mark">
+        <div class="end-mark">
             <i class="fas fa-feather-alt"></i>
         </div>
 

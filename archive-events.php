@@ -1,45 +1,65 @@
 <?php get_header(); ?>
 
-<main class="news-archive">
+<main class="events-archive">
 
-    <h2 class="news-archive__heading">Upcoming Events and Workshops!</h2>
+    <h2 class="events-archive__heading">Upcoming Events and Workshops!</h2>
 
-    <div class="news-archive__pagination">
+    <div class="pagination">
         <?php echo paginate_links(); ?>
     </div>
 
-    <hr class="hr_style_1">
-
+    <!-- Card Grid Container Around Loop --> 
+    <div class="events-archive__card-grid"> 
     <?php
-    while(have_posts()) {
-        the_post(); ?>
+        while (have_posts()) {
+            the_post(); ?>
 
-        <section class="news-archive__section">
-            <?php the_post_thumbnail('news-square', array('class' => 'news-archive__feature-img')); ?>
-            
-            <div class="news-archive__content">
-                <p class="news-archive__post-details"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><strong>By <span><?php the_author(); ?></span> on <?php echo get_the_date() ?></strong></a></p>
+        <div class="flip-card">
+            <!-- Front of Card -->
+            <div class="flip-card__side flip-card__side--front">
+                <div class="flip-card__imgBox">
+                    <?php the_post_thumbnail('news-medium', array('class' => 'flip-card__img')); ?>
+                </div>
+                        
+                <div class="flip-card__content">
+                    <h4 class="flip-card__event-date">
+                        <?php
+                            $eventDate = new DateTime(get_field('event_date'));
+                            $eventLocation = get_field('event_location', false);
+                            echo $eventDate->format('M jS, Y') . ' | ' . $eventLocation;
+                        ?> 
+                    </h4>
+                    <h3 class="flip-card__event-title"><?php the_title(); ?></h3>
 
-                <h3 class="news-archive__title"><a class="news-archive__title-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-
-                <p class="news-archive__text"><?php echo wp_trim_words(get_the_content(), 35); ?></p>
-
-                <p class="news-archive__categories"><strong>Posted in:</strong> <?php the_category(', '); ?></p>
-
-                <a href="<?php the_permalink(); ?>" class="news-archive__btn">Read Article &rarr;</a>
+                    <p class="flip-card__event-content">
+                        <?php 
+                        if (has_excerpt()) {
+                            echo get_the_excerpt();
+                        } else {
+                            echo wp_trim_words(get_the_content(), 18); 
+                        }
+                        ?>
+                    </p>
+                </div>
             </div>
-        </section>
-    
+
+            <!-- Back of Card -->
+            <div class="flip-card__side flip-card__side--back">
+                <div class="flip-card__btn-container">
+                    <a href="#" class="flip-card__btn">Sign Up!</a>
+                    <a href="<?php the_permalink(); ?>" class="flip-card__btn">See Details &rarr;</a>
+                </div>
+            </div>
+        </div>
+
     <?php } ?>
+    </div> <!-- Close Card Grid Container -->
 
-    <hr class="hr_style_1">
-
-    <div class="news-archive__pagination">
+    <div class="pagination">
         <?php echo paginate_links(); ?>
     </div>
 
-    <a href="<?php echo site_url('/'); ?>" class="news-archive__home-btn">Home</a>
-
+    <a href="<?php echo site_url('/'); ?>" class="btn-secondary">Home</a>
 </main>
 
 

@@ -1,0 +1,183 @@
+.events-archive {
+    background: linear-gradient(to right, 
+        rgba($color-orange, .4), 
+        rgba($color-orange, .4)), 
+        url(./assets/img/events.png);
+    background-repeat: repeat;
+    padding: 12rem;
+
+    &__heading {
+        font-size: 5rem;
+        font-family: $font-heading;
+        text-align: center;
+        color: $color-orange;
+        padding: 5rem 0;
+        width: 80%;
+        margin: 0 auto;
+        background: rgba(0,0,0, .7);
+        box-shadow: 1rem 1rem 2rem rgba(0,0,0, .5);
+
+        @media only screen and (max-width: $bp-medium-small) {
+            font-size: 4rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 3.5rem;
+            margin-bottom: 7rem;
+        }
+    }
+
+    &__card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(300px, 400px));
+        grid-auto-rows: minmax(min-content, 450px);
+        grid-gap: 6rem 12rem;
+    }
+}
+
+.flip-card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+
+    &__side {
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 45rem;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        overflow: hidden;
+        background: rgba(0,0,0, .7);
+        box-shadow: 1rem 1rem 2rem rgba(0,0,0, .5);
+        
+        &--front {
+            display: flex;
+            flex-direction: column; 
+        }
+
+        &--back {     
+            transform: rotateY(180deg);
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);        
+    }
+
+    &__imgBox {
+        height: 250px;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__content {
+        padding: 1.5rem;
+    }
+
+    &__event-date {
+        font-size: 2rem;
+        color: $color-brown;
+
+        @media only screen and (max-width: $bp-larger) {
+            font-size: 1.8rem;
+        }
+
+        @media only screen and (max-width: $bp-medium-large) {
+            font-size: 2.2rem;
+        }
+
+        @media only screen and (max-width: $bp-medium-small) {
+            font-size: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__event-title {
+        font-size: 2.2rem;
+        color: $color-tan;
+        margin: .5rem 0;
+
+        @media only screen and (max-width: $bp-medium-large) {
+            font-size: 2.5rem;
+        }
+
+        @media only screen and (max-width: $bp-medium-small) {
+            font-size: 2.2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            margin-top: 1rem;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__event-content {
+        font-size: 1.7rem;
+        color: $color-white-dark;
+        margin-top: 2rem;
+
+        @media only screen and (max-width: $bp-larger) {
+            margin-top: 1rem;
+        }
+
+        @media only screen and (max-width: $bp-medium-large) {
+            font-size: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-medium-small) {
+            font-size: 1.7rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.5rem;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            display: none;
+        }
+    }
+
+    &__btn {        
+        &:link,
+        &:visited { 
+            background-color: $color-orange;
+            color: $color-white-dark;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);           
+            text-decoration: none;            
+            font-size: 2rem;
+            padding: 10px;        
+            display: inline-block;
+            transition: all .2s ease-out;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $color-orange * .8; 
+            transform: scale(1.1);        
+        }
+    }
+}
