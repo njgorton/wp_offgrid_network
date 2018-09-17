@@ -16,9 +16,9 @@
 
         <div class="flip-card">
             <!-- Front of Card -->
-            <div class="flip-card__side flip-card__side--front">
-                <div class="flip-card__imgBox">
-                    <?php the_post_thumbnail('news-medium', array('class' => 'flip-card__img')); ?>
+            <a href="<?php the_permalink(); ?>" class="flip-card__side flip-card__side--front">
+                <div class="flip-card__imgBox-front">
+                    <?php the_post_thumbnail('news-medium', array('class' => 'flip-card__img-front')); ?>
                 </div>
                         
                 <div class="flip-card__content">
@@ -29,7 +29,7 @@
                             echo $eventDate->format('M jS, Y') . ' | ' . $eventLocation;
                         ?> 
                     </h4>
-                    <h3 class="flip-card__event-title"><?php the_title(); ?></h3>
+                    <h3 class="flip-card__title-front"><?php the_title(); ?></h3>
 
                     <p class="flip-card__event-content">
                         <?php 
@@ -41,10 +41,27 @@
                         ?>
                     </p>
                 </div>
-            </div>
+            </a>
 
             <!-- Back of Card -->
             <div class="flip-card__side flip-card__side--back">
+                <h3 class="flip-card__title-back"><?php the_title(); ?></h3>
+
+                <div class="flip-card__imgBox-back">
+                    <?php the_post_thumbnail('news-square', array('class' => 'flip-card__img-back')); ?>
+                </div>
+
+                <p class="flip-card__details">
+                    <?php
+                        $eventPrice = get_field('event_price');
+                        if ( $eventPrice < 1) {
+                            echo 'Free Event!';
+                        } else {
+                            echo 'Only $' . $eventPrice . '!';
+                        }
+                    ?>
+                </p>
+
                 <div class="flip-card__btn-container">
                     <a href="#" class="flip-card__btn">Sign Up!</a>
                     <a href="<?php the_permalink(); ?>" class="flip-card__btn">See Details &rarr;</a>
