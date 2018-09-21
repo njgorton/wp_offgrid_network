@@ -139,6 +139,60 @@
 }
 
 
+//=====Post Navigation Links=====
+.postNav {
+    position: relative;
+    display: flex;
+
+    @media only screen and (max-width: $bp-medium-small) {
+        margin-top: 5rem;
+        margin-bottom: 15rem;
+    }
+
+    &__primary {
+        &:link,
+        &:visited {
+            background: $color-green;
+            color: $color-dark;
+            border-radius: 4px;
+            box-shadow: 1rem 1rem 1rem rgba(0,0,0, .3);
+            font-size: 1.5rem;
+            white-space: nowrap;
+            text-decoration: none;
+            padding: 1.5rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            // Hover effect animated in jquery:
+            transition: all .2s ease-in-out;
+        }
+    }
+
+    &__secondary {
+        &:link,
+        &:visited {
+            background: $color-dark;
+            color: $color-white-dark;
+            border-radius: 4px;
+            box-shadow: 1rem 1rem 1rem rgba(0,0,0, .3);
+            font-size: 1.5rem;
+            //white-space: nowrap;
+            text-decoration: none;
+            padding: 1.5rem;
+            position: absolute;
+            top: 4rem;
+            left: 4rem; 
+            // Hover effect animated in jquery:
+            transition: all .2s ease-in-out;       
+    
+            span {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
 //=====Related Content Carousel Cards=====
 .cards-related {
     width: 30%;

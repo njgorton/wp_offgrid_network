@@ -1,49 +1,88 @@
 <?php get_header(); ?>
 
-<main class="news-article">
+<main class="event">
     <?php
     while(have_posts()) {
         the_post(); ?>
 
-        <h2 class="post-title"><?php the_title(); ?></h2>
-
-        <div class="news-article__post-details">
-            <a href="<?php echo get_post_type_archive_link('events'); ?>" class="news-article__nav-category" id="first">
+        <!-- postNav and children are styled in /modules/utilities -->
+        <div class="postNav event__navLinks">
+            <a href="<?php echo get_post_type_archive_link('events'); ?>" class="postNav__primary" id="first">
             <i class="far fa-calendar-alt"></i> Upcoming Events
             </a>
-            <a href="<?php echo site_url('/event-registration?events=' . $post->ID . ''); ?>" class="news-article__posted-by" id="second">
+            <a href="<?php echo site_url('/event-registration?events=' . $post->ID . ''); ?>" class="postNav__secondary" id="second">
                 Sign up for <span><?php the_title(); ?></span>
             </a>
         </div>
 
-        <hr class="hr_style_1">
+        <?php the_post_thumbnail('news-square', array('class' => 'event__feature-img')); ?>
 
-        <?php the_post_thumbnail('news-large', array('class' => 'news-article__feature-img')); ?>
+        <h2 class="event__title post-title"><?php the_title(); ?></h2>
 
-        <div class="news-article__main-content post-content"><?php the_content(); ?></div>
+        <hr class="hr_style_1 event__hr">
 
-        <div class="end-mark">
-            <i class="fas fa-feather-alt"></i>
+        <div class="event__metaBox">
+            <div class="event__price">
+            <?php
+                $eventPrice = get_field('event_price');
+                if ( $eventPrice < 1) {
+                    echo 'Free Event!';
+                } else {
+                    echo 'Only $' . $eventPrice . '!';
+                }
+            ?>
+            </div>
+
+            <p>
+            <?php
+                $eventDate = new DateTime(get_field('event_date'));
+                echo '<i class="fas fa-calendar-alt"></i> &nbsp; ' . $eventDate->format('M jS, Y');
+            ?> 
+            </p>
+
+            <p>
+            <?php
+                $eventStartTime = get_field('event_start_time');
+                $eventEndTime = get_field('event_end_time');
+                echo '<i class="far fa-clock"></i> &nbsp; ' . $eventStartTime . ' - ' . $eventEndTime;
+            ?>
+            </p>
+
+            <p>
+            <?php
+                $eventLocation = get_field('event_location');
+                echo '<i class="fas fa-map-marked-alt"></i> &nbsp; ' . $eventLocation;
+            ?>
+            </p>
         </div>
 
-        <h3 class="news-article__more-from-category">Also posted in <?php the_category(', '); ?>:</h3>
+        <div class="post-content"><?php the_content(); ?></div>
+
+        <a href="<?php echo site_url('/event-registration?events=' . $post->ID . ''); ?>" class="event__callOut">Sign up Now!</a>
+
+        <h3 class="news-article__more-from-category">More Upcoming Events:</h3>
 
         <div class="news-article__related-content" data-flickity='{ "freeScroll": "true", "wrapAround": "true" }'>
             <?php             
-                $categories = get_the_category();
-                $category_ids = array();
-                foreach( $categories as $cat ) {
-                    $category_ids[] = $cat->term_id;
-                }
-
-                $categoryPosts = new WP_Query(array(
-                    'post_type' => array( 'news', 'posts' ),
-                    'posts_per_page' => 10,
-                    'category__in' => $category_ids
+                $today = date('Ymd');
+                $moreEvents = new WP_Query(array(
+                    'posts_per_page' => -1,
+                    'post_type' => 'events',
+                    'meta_key' => 'event_date',
+                    'orderby' => 'meta_value_num',
+                    'order' => 'ASC',
+                    'meta_query' => array(
+                        array(
+                            'key' => 'event_date',
+                            'compare' => '>=',
+                            'value' => $today,
+                            'type' => 'numeric'    
+                        )
+                    )
                 ));
 
-                while ($categoryPosts->have_posts()) {
-                    $categoryPosts->the_post(); 
+                while ($moreEvents->have_posts()) {
+                    $moreEvents->the_post(); 
             ?>
 
             <div class="cards-related">
@@ -62,8 +101,8 @@
     <?php } ?>
 
         <div class="news-article__btn-box">
-            <a href="<?php echo get_post_type_archive_link('news'); ?>" class="news-article__btn">&larr; Back to News</a>
-            <a href="<?php echo site_url('/'); ?>" class="news-article__btn">&larr; Home</a>
+            <a href="<?php echo site_url('/'); ?>" class="news-article__btn"><i class="fas fa-home"></i>&nbsp; Home</a>
+            <a href="<?php echo get_post_type_archive_link('events'); ?>" class="news-article__btn"><i class="far fa-calendar-alt"></i>&nbsp; Events</a>
         </div>
 </main>
 

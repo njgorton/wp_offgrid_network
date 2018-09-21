@@ -43,9 +43,10 @@ function offgrid_network_adjust_queries ($query) {
 
 add_action('pre_get_posts', 'offgrid_network_adjust_queries');
 
-add_filter( 'query_vars', function ( $vars ) {
-	$vars[] = 'events'; // whatever query param you're using
-	return $vars;
-} );
+
+// add_filter( 'query_vars', function ( $vars ) {
+// 	$vars[] = 'events'; // whatever query param you're using
+// 	return $vars;
+// } );
 
 ?>

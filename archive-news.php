@@ -38,7 +38,7 @@
         <?php echo paginate_links(); ?>
     </div>
 
-    <a href="<?php echo site_url('/'); ?>" class="btn-primary">Home</a>
+    <a href="<?php echo site_url('/'); ?>" class="btn-primary"><i class="fas fa-home"></i>&nbsp; Home</a>
 
 </main>
 

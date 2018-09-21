@@ -76,7 +76,7 @@
         <?php echo paginate_links(); ?>
     </div>
 
-    <a href="<?php echo site_url('/'); ?>" class="btn-secondary">Home</a>
+    <a href="<?php echo site_url('/'); ?>" class="btn-secondary"><i class="fas fa-home"></i>&nbsp; Home</a>
 </main>
 
 
