@@ -102,7 +102,7 @@
                 </div>
                 
                 <div class="events-card__btn-container">
-                    <a href="#" class="events-card__btn">Sign Up!</a>
+                    <a href="<?php echo site_url('/event-registration'); ?>" class="events-card__btn">Sign Up!</a>
                     <a href="<?php the_permalink(); ?>" class="events-card__btn">See Details &rarr;</a>
                 </div>
             </div>

@@ -10,7 +10,7 @@
             <a href="<?php echo get_post_type_archive_link('events'); ?>" class="postNav__primary" id="first">
             <i class="far fa-calendar-alt"></i> Upcoming Events
             </a>
-            <a href="<?php echo site_url('/event-registration?events=' . $post->ID . ''); ?>" class="postNav__secondary" id="second">
+            <a href="<?php echo site_url('/event-registration'); ?>" class="postNav__secondary" id="second">
                 Sign up for <span><?php the_title(); ?></span>
             </a>
         </div>
@@ -58,7 +58,7 @@
 
         <div class="post-content"><?php the_content(); ?></div>
 
-        <a href="<?php echo site_url('/event-registration?events=' . $post->ID . ''); ?>" class="event__callOut">Sign up Now!</a>
+        <a href="<?php echo site_url('/event-registration'); ?>" class="event__callOut">Sign up Now!</a>
 
         <h3 class="news-article__more-from-category">More Upcoming Events:</h3>
 
@@ -100,9 +100,9 @@
         </div> 
     <?php } ?>
 
-        <div class="news-article__btn-box">
-            <a href="<?php echo site_url('/'); ?>" class="news-article__btn"><i class="fas fa-home"></i>&nbsp; Home</a>
-            <a href="<?php echo get_post_type_archive_link('events'); ?>" class="news-article__btn"><i class="far fa-calendar-alt"></i>&nbsp; Events</a>
+        <div class="paired-btnBox">
+            <a href="<?php echo site_url('/'); ?>" class="paired-btn"><i class="fas fa-home"></i>&nbsp; Home</a>
+            <a href="<?php echo get_post_type_archive_link('events'); ?>" class="paired-btn"><i class="far fa-calendar-alt"></i>&nbsp; Events</a>
         </div>
 </main>
 

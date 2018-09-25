@@ -104,34 +104,6 @@
         }
     }
 
-    &__btn-box {
-        text-align: center;
-    }
-
-    &__btn {       
-        &:link,
-        &:visited { 
-            display: inline-block;                    
-            text-decoration: none;
-            color: $color-orange;   
-            font-size: 2.5rem;
-            border-bottom: 1px solid $color-orange;
-            padding: 10px;
-            margin: 0 2rem;
-            transition: all .1s ease;
-
-            @media only screen and (max-width: $bp-smaller) {
-                font-size: 2rem;
-                padding: 5px;
-            }
-        }
-
-        &:hover {
-            background-color: $color-orange;
-            color: $color-white-dark;
-        }
-    }
-
     &__more-from-category {
         color: $color-dark;
         font-size: 2.6rem;

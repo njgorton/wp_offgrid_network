@@ -1,46 +1,225 @@
 <?php get_header(); ?>
 
-<main class="news-article">
-
+<main class="event-registration">
     <?php
-        $param = $_GET['events'];
-        if ( $param ) {
-            global $post;
-            $post = get_post( $param );
-            if ( $post ) {
-                setup_postdata( $post ); ?>
-                
-                <h1>Im the registration PAGE!!!!!</h1>
-                <h2 class="news-article__title post-title"><?php the_title(); ?></h2>
+    while(have_posts()) {
+        the_post(); ?>
 
-                <div class="news-article__post-details">
-                    <a href="<?php echo get_post_type_archive_link('events'); ?>" class="news-article__nav-category" id="first">
-                        <i class="far fa-newspaper"></i> Events Home
-                    </a>
-                    <a href="<?php echo site_url('/'); ?>" class="news-article__posted-by" id="second">
-                    Back to Event Details
-                    </a>
-                </div>
+    <h2 class="event-registration__heading">OGN<br><?php the_title(); ?></h2>
 
-                <hr class="hr_style_1">
+    <form class="event-registration__form">
+        <div class="event-registration__pickEvent">
+            <label for="event"><sup>*</sup> Which event will you be attending?</label>
+            <select name="event" id="dropdown">
+                <option id="disabled" disabled selected>Select an event</option>
 
-                <?php the_post_thumbnail('thumbnail', array('class' => 'news-article__feature-img')); ?>
+                <?php
+                $today = date('Ymd');
+                $event = new WP_Query(array(
+                'posts_per_page' => -1,
+                'post_type' => 'events',
+                'meta_key' => 'event_date',
+                'orderby' => 'meta_value_num',
+                'order' => 'ASC',
+                'meta_query' => array(
+                    array(
+                    'key' => 'event_date',
+                    'compare' => '>=',
+                    'value' => $today,
+                    'type' => 'numeric'    
+                    )
+                )
+                ));
+                while ($event->have_posts()) {
+                $event->the_post(); 
+                ?>
 
-            <?php } else {
-                // Event Post not found, let's 404 it.
-                echo 'This event was not found!';
-            }
-        wp_reset_postdata();
-        }  else {
-        // invalid query param
-        echo 'Invalid link!';
-        }
-    ?>
+                    <option value="<?php the_title(); ?>">
+                    <?php 
+                        $eventDate = new DateTime(get_field('event_date'));
 
-        <div class="news-article__btn-box">
-            <a href="<?php echo get_post_type_archive_link('events'); ?>" class="news-article__btn">&larr; Back to Events</a>
-            <a href="<?php echo site_url('/'); ?>" class="news-article__btn">&larr; Home</a>
+                        echo the_title() . ' - ' .  $eventDate->format('M jS, Y');
+                    ?>
+                    </option>
+
+                <?php } wp_reset_postdata(); ?>
+            </select>
         </div>
+
+        <fieldset class="event-registration__fieldset event-registration__fieldset--left">                
+            <div class="event-registration__inputBox">
+                <label for="email"><sup>*</sup> Email: </label>
+                <input type="email" name="email" placeholder="Your email" required>
+            </div>
+
+            <div class="event-registration__inputBox">
+                <label for="first-name"><sup>*</sup> First Name: </label>
+                <input type="text" name="first-name" placeholder="Your first name" required">
+            </div>
+            
+            <div class="event-registration__inputBox">
+                <label for="last-name"><sup>*</sup> Last Name: </label>
+                <input type="text" name="last-name" placeholder="Your last name" required>
+            </div>
+
+            <div class="event-registration__inputBox">
+                <label for="address">Address: </label>
+                <input type="text" name="address" placeholder="Your address">
+            </div>
+
+            <div class="event-registration__inputBox">
+                <label for="city">City: </label>
+                <input type="text" name="city" placeholder="Your city">
+            </div>
+
+            <div class="event-registration__inputBox">
+                <label for="country">Country: </label>
+                <input type="text" name="country" placeholder="Your country">
+            </div>
+
+            <div class="event-registration__inputBox">
+                <label for="telephone">Phone: </label>
+                <input type="tel" name="telphone" placeholder="Your phone number" required>
+            </div>
+            
+            <div class="event-registration__inputBox event-registration__inputBox--radio">
+                <p>What is your preffered method of contact?</p>
+
+                <div>
+                    <div class="event-registration__options">
+                        <label for="email">
+                        <input id="email" type="radio" name="radio" value="1"><span>Email</span></label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label for="phone">
+                        <input id="phone" type="radio" name="radio"value="2"><span>Phone</span></label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label for="text">
+                        <input id="text" type="radio" name="radio" value="3"><span>Text</span></label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="event-registration__fieldset event-registration__fieldset--right">
+
+            <div class="event-registration__inputBox event-registration__inputBox--radio">
+                <p><sup>*</sup> Have you ever attended any of OGN's past events?</p>
+
+                <div>
+                    <div class="event-registration__options">
+                        <label for="yes">
+                        <input id="yes" type="radio" name="radio" value="yes"><span>Yes</span></label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label for="no">
+                        <input id="no" type="radio" name="radio"value="no"><span>No</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Optional:</h3>
+            
+            <div class="event-registration__inputBox">
+                <label for="describe">How would you best describe yourself?</label>
+                <select name="describe">
+                    <option id="generic-selected" disabled selected>Select an option</option>
+                    <option value="1">Grids are for CSS!</option>
+                    <option value="2">Off-Grid Veteran</option>
+                    <option value="3">Getting Off-Grid</option>
+                    <option value="4">Interested in Off-Grid Living</option>
+                    <option value="5">Just Here to Learn Cool Stuff</option>
+                    <option value="6">Prefer Not to Say</option>
+                    <option value="7">Other</option>
+                </select>
+            </div>
+
+            <div class="event-registration__checkBoxes">
+                <p>What kind of events or workshops would you like OGN to curate in the future?<br>(Check all that apply)</p>
+
+                <div class="event-registration__checkOptions">
+                    <div class="event-registration__options">
+                        <label><input type="checkbox" name="check" value="1">
+                            <span>Agriculture</span>
+                        </label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label><input type="checkbox" name="check" value="2">
+                            <span>Animal Husbandry</span>
+                        </label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label><input type="checkbox" name="check" value="3">
+                            <span>Poultry</span>
+                        </label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label><input type="checkbox" name="check" value="4">
+                            <span>Livestock</span>
+                        </label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label><input type="checkbox" name="check" value="5">
+                            <span>Permaculture</span>
+                        </label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label><input type="checkbox" name="check" value="6">
+                            <span>Power and electricty</span>
+                        </label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label><input type="checkbox" name="check" value="7">
+                            <span>Water and Plumbing</span>
+                        </label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label><input type="checkbox" name="check" value="8">
+                            <span>Land and Legal</span>
+                        </label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label><input type="checkbox" name="check" value="9">
+                            <span>Homesteading Skills and Past-times</span>
+                        </label>
+                    </div>
+
+                    <div class="event-registration__options">
+                        <label><input type="checkbox" name="check" value="10">
+                            <span>Alternative Fuels and Transportation</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+		
+        <div class="event-registration__comments">
+            <label for="comments">We're always looking for ways to improve OGN. Feel free to leave us any comments!</label>
+        
+            <textarea id="comments" name="comments" placeholder="enter your comments here..."></textarea>
+        </div>
+        
+        <button class="event-registration__submit" id="submit" type="submit">Submit!</button>
+    </form>
+        
+    <div class="paired-btnBox">
+            <a href="<?php echo site_url('/'); ?>" class="paired-btn" id="pageNav"><i class="fas fa-home"></i>&nbsp; Home</a>
+            <a href="<?php echo get_post_type_archive_link('events'); ?>" class="paired-btn" id="pageNav"><i class="far fa-calendar-alt"></i>&nbsp; Events</a>
+    </div>
+
+    <?php } ?>
 </main>
 
 <?php get_footer(); ?>

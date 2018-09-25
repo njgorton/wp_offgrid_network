@@ -63,7 +63,7 @@
                 </p>
 
                 <div class="flip-card__btn-container">
-                    <a href="#" class="flip-card__btn">Sign Up!</a>
+                    <a href="<?php echo site_url('/event-registration'); ?>" class="flip-card__btn">Sign Up!</a>
                     <a href="<?php the_permalink(); ?>" class="flip-card__btn">See Details &rarr;</a>
                 </div>
             </div>

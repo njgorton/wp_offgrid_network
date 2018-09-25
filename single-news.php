@@ -64,9 +64,9 @@
         </div> 
     <?php } ?>
 
-        <div class="news-article__btn-box">
-            <a href="<?php echo site_url('/'); ?>" class="news-article__btn"><i class="fas fa-home"></i>&nbsp; Home</a>
-            <a href="<?php echo get_post_type_archive_link('news'); ?>" class="news-article__btn"><i class="far fa-newspaper"></i>&nbsp; News</a>
+        <div class="paired-btnBox">
+            <a href="<?php echo site_url('/'); ?>" class="paired-btn"><i class="fas fa-home"></i>&nbsp; Home</a>
+            <a href="<?php echo get_post_type_archive_link('news'); ?>" class="paired-btn"><i class="far fa-newspaper"></i>&nbsp; News</a>
         </div>
 </main>
 
