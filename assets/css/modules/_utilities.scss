@@ -250,7 +250,6 @@
             border-radius: 4px;
             box-shadow: 1rem 1rem 1rem rgba(0,0,0, .3);
             font-size: 1.5rem;
-            //white-space: nowrap;
             text-decoration: none;
             padding: 1.5rem;
             position: absolute;
@@ -320,5 +319,72 @@
             text-decoration: none;
             color: inherit;
         }
+    }
+}
+
+
+//=====Confirmation Modal=====
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, .8);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba(0,0,0, .3);
+    }
+
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;     
+        width: 75%;
+        background: linear-gradient(to right, 
+            rgba($color-white-light *.8, 1), 
+            rgba($color-white-light *.8, .95),
+            rgba($color-white-light *.8, .9), 
+            rgba($color-white-light *.9, .9)),
+            url(./assets/img/events.png);
+        background-repeat: repeat;
+        box-shadow: 1rem 2rem 4rem rgba(0,0,0, .7);
+        padding: 5rem;
+        overflow: hidden;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.25);
+        transition: all .5s .2s;
+    }
+
+    &__heading {
+        font-size: 4rem;
+        text-align: center;
+        color: $color-brown;
+        margin-bottom: 5rem;
+    }
+
+    &__text {
+        font-size: 2.5rem;
+        line-height: 1.5;
+        color: $color-dark;
+        margin: 3rem auto;
+        width: 80%;
+    }
+
+    //OPEN STATES
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
     }
 }

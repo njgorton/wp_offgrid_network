@@ -210,12 +210,30 @@
             </div>
         </fieldset>
         
-        <button class="event-registration__submit call-out-btn" id="submit" type="submit">Submit!</button>
+        <a href="#popup" class="event-registration__submit call-out-btn" id="submit" type="submit">Submit!</a>
     </form>
         
     <div class="paired-btnBox">
             <a href="<?php echo site_url('/'); ?>" class="paired-btn" id="pageNav"><i class="fas fa-home"></i>&nbsp; Home</a>
             <a href="<?php echo get_post_type_archive_link('events'); ?>" class="paired-btn" id="pageNav"><i class="far fa-calendar-alt"></i>&nbsp; Events</a>
+    </div>
+
+    <!-- Confirmation Modal Popup -->
+    <div class="popup" id="popup">
+        <div class="popup__content">
+            <h3 class="popup__heading">Thanks for signing up!</h3>
+
+            <hr class="hr_style_1">
+            
+            <p class="popup__text">A confirmation email will be sent to you shortly, with everything you need to know about the event.</p>
+
+            <p class="popup__text">(...but not really. This is a fake website. Nothing happened. Please don't show up to any events or you will be very alone and embarassed. That would be awkward.)</p>
+
+            <div class="paired-btnBox">
+                <a href="<?php echo site_url('/'); ?>" class="paired-btn"><i class="fas fa-home"></i>&nbsp; Home</a>
+                <a href="<?php echo get_post_type_archive_link('events'); ?>" class="paired-btn"><i class="far fa-calendar-alt"></i>&nbsp; Events</a>
+            </div>
+        </div>
     </div>
 
     <?php } ?>
