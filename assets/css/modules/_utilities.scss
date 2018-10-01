@@ -141,6 +141,47 @@
 }
 
 
+//=====Call Out Button=====
+.call-out-btn {
+    display: block;
+    width: 40%;
+    background: $color-orange;
+    color: $color-white-light;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+    border: none;
+    font-size: 3rem;
+    text-align: center;
+    white-space: nowrap;
+    padding: 1rem;
+    margin: 7rem auto;
+    margin-bottom: 10rem;
+    transition: all .1s ease-out;
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 2.5rem;
+        min-width: 25rem;
+    }
+
+    &:link,
+    &:visited {
+        color: $color-white-light;
+        text-decoration: none;
+    }
+
+    &:hover {
+        background-color: $color-orange * .8;         
+        box-shadow: 0 1rem 2rem rgba(0,0,0, .5);
+        width: 50%;
+        transform: translateY(-5px);
+    }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+        transform: translateY(0);
+    }
+}
+
+
 //=====Pagination Links=====
 .pagination {
     font-size: 1.7rem;

@@ -58,7 +58,7 @@
 
         <div class="post-content"><?php the_content(); ?></div>
 
-        <a href="<?php echo site_url('/event-registration'); ?>" class="event__callOut">Sign up Now!</a>
+        <a href="<?php echo site_url('/event-registration'); ?>" class="call-out-btn">Sign up Now!</a>
 
         <h3 class="news-article__more-from-category">More Upcoming Events:</h3>
 

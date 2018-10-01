@@ -10,7 +10,7 @@
     <form class="event-registration__form">
         <div class="event-registration__pickEvent">
             <label for="event"><sup>*</sup> Which event will you be attending?</label>
-            <select name="event" id="dropdown">
+            <select required name="event">
                 <option id="disabled" disabled selected>Select an event</option>
 
                 <?php
@@ -79,10 +79,10 @@
 
             <div class="event-registration__inputBox">
                 <label for="telephone">Phone: </label>
-                <input type="tel" name="telphone" placeholder="Your phone number" required>
+                <input type="tel" name="telphone" placeholder="Your phone number">
             </div>
             
-            <div class="event-registration__inputBox event-registration__inputBox--radio">
+            <div class="event-registration__inputBox event-registration__inputBox--stacked">
                 <p>What is your preffered method of contact?</p>
 
                 <div>
@@ -102,11 +102,8 @@
                     </div>
                 </div>
             </div>
-        </fieldset>
 
-        <fieldset class="event-registration__fieldset event-registration__fieldset--right">
-
-            <div class="event-registration__inputBox event-registration__inputBox--radio">
+            <div class="event-registration__inputBox event-registration__inputBox--stacked">
                 <p><sup>*</sup> Have you ever attended any of OGN's past events?</p>
 
                 <div>
@@ -121,10 +118,13 @@
                     </div>
                 </div>
             </div>
+        </fieldset>
+
+        <fieldset class="event-registration__fieldset event-registration__fieldset--right">
 
             <h3>Optional:</h3>
             
-            <div class="event-registration__inputBox">
+            <div class="event-registration__inputBox event-registration__inputBox--stacked">
                 <label for="describe">How would you best describe yourself?</label>
                 <select name="describe">
                     <option id="generic-selected" disabled selected>Select an option</option>
@@ -203,15 +203,14 @@
                     </div>
                 </div>
             </div>
+
+            <div class="event-registration__comments">
+                <label for="comments">We're always looking for ways to improve OGN. Feel free to leave us any comments!</label>
+                <textarea id="comments" name="comments" placeholder="Enter your comments here..."></textarea>
+            </div>
         </fieldset>
-		
-        <div class="event-registration__comments">
-            <label for="comments">We're always looking for ways to improve OGN. Feel free to leave us any comments!</label>
         
-            <textarea id="comments" name="comments" placeholder="enter your comments here..."></textarea>
-        </div>
-        
-        <button class="event-registration__submit" id="submit" type="submit">Submit!</button>
+        <button class="event-registration__submit call-out-btn" id="submit" type="submit">Submit!</button>
     </form>
         
     <div class="paired-btnBox">
