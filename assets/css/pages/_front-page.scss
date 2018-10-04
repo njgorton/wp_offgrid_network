@@ -215,9 +215,7 @@
         font-size: 1.7rem;
         border-bottom: 1px solid $color-orange;
         padding: 5px;
-        position: absolute;
-        // bottom: 5rem;
-        // right: 5rem; 
+        position: absolute; 
         bottom: 3rem;
         right: 3rem;
         
@@ -309,14 +307,6 @@
     
     @media only screen and (max-width: $bp-medium-large) {
         max-width: 80rem;
-
-        &:nth-last-child(1) {
-            display: none;
-        }
-
-        &:nth-last-child(2) {
-            display: none;
-        }
     }
 
     &:hover .events-card__img {
@@ -345,7 +335,7 @@
 
         @media only screen and (max-width: $bp-medium-large) {
             max-width: 30rem;
-            max-height: 30rem;
+            //max-height: 30rem;
         }
 
         @media only screen and (max-width: $bp-small) {

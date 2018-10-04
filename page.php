@@ -19,7 +19,7 @@
 
         <hr class="hr_style_1">
 
-        <a href="<?php echo site_url('/'); ?>" class="btn-primary">&larr; Home</a>
+        <a href="<?php echo site_url('/'); ?>" class="btn-primary"><i class="fas fa-home"></i>&nbsp; Home</a>
         
     <?php } ?>
 </main>

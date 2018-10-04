@@ -360,6 +360,14 @@
         opacity: 0;
         transform: translate(-50%, -50%) scale(.25);
         transition: all .5s .2s;
+
+        @media only screen and (max-width: $bp-medium) {
+            padding: 3rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            width: 90%;
+        }
     }
 
     &__heading {
@@ -367,6 +375,11 @@
         text-align: center;
         color: $color-brown;
         margin-bottom: 5rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
     }
 
     &__text {
@@ -375,6 +388,11 @@
         color: $color-dark;
         margin: 3rem auto;
         width: 80%;
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 2rem;
+            margin: 2rem auto;
+        }
     }
 
     //OPEN STATES

@@ -344,9 +344,7 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .news-card__btn{bottom:3rem;right:3rem}
 .events__content{-ms-grid-columns:1fr;grid-template-columns:1fr;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center}
 .events-card{max-width:80rem}
-.events-card:nth-last-child(1){display:none}
-.events-card:nth-last-child(2){display:none}
-.events-card__img{max-width:30rem;max-height:30rem}
+.events-card__img{max-width:30rem}
 .events-card__heading h4{font-size:2.2rem}
 .events-card__heading h3{font-size:2.5rem}
 .events-card__text{font-size:2rem}
@@ -382,6 +380,9 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .btn-secondary:link:hover,.btn-secondary:visited:hover{width:50%}
 .call-out-btn{font-size:2.5rem;min-width:25rem}
 .cards-related{width:50%}
+.popup__content{padding:3rem}
+.popup__heading{font-size:3rem;margin-bottom:3rem}
+.popup__text{font-size:2rem;margin:2rem auto}
 .post-content img{float:none;display:block;margin:0 auto;margin-bottom:3rem}
 .about{display:none}
 .news__btn{width:40%}
@@ -441,6 +442,7 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .btn-primary:hover{width:70%}
 .pagination{margin:3rem;text-align:center}
 .cards-related{width:65%}
+.popup__content{width:90%}
 .end-mark{font-size:3rem}
 .post-content{font-size:1.8rem}
 .news-card{width:65%}
