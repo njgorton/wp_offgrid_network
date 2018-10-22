@@ -399,7 +399,7 @@ body { background-color: #1b1b1b; max-width: 1800px; margin: 0 auto; overflow-x:
 
 .news__btn:active { box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5); -webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0); }
 
-.news-card { width: 30%; min-height: 50rem; margin: 3rem 5rem 3rem 0; background-color: rgba(0, 0, 0, 0.7); box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.5); border-radius: 2px; padding: 3rem; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }
+.news-card { width: 30%; min-height: 48rem; margin: 3rem 5rem 3rem 0; background-color: rgba(0, 0, 0, 0.7); box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.5); border-radius: 2px; padding: 3rem; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }
 
 @media only screen and (max-width: 62.5em) { .news-card { min-height: 45rem; padding: 1.5rem; margin-right: 3rem; } }
 
