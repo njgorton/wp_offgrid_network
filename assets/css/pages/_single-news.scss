@@ -1,5 +1,8 @@
 .news-article {
-    background: linear-gradient(to right, rgba($color-white-light *.8, .9), rgba($color-white-light *.8, .7), rgba($color-white-light, .2)),
+    background: linear-gradient(to right, 
+    rgba($color-white-light *.8, .9), 
+    rgba($color-white-light *.8, .7), 
+    rgba($color-white-light, .2)),
     url(./assets/img/honeycomb.png);
     padding: 10rem 20rem;
 
@@ -19,57 +22,12 @@
         margin: 0 auto;   
     }
 
-    &__post-details {
-        position: relative;
-        display: flex;
+    &__navLinks {
         margin-top: 7rem; 
         margin-bottom: 10rem;
 
         @media only screen and (max-width: $bp-medium-small) {
-            margin-top: 5rem;
             margin-bottom: 15rem;
-        }
-    }
-
-    &__nav-category {
-        &:link,
-        &:visited {
-            background: $color-green;
-            color: $color-dark;
-            border-radius: 4px;
-            box-shadow: 1rem 1rem 1rem rgba(0,0,0, .3);
-            font-size: 1.5rem;
-            white-space: nowrap;
-            text-decoration: none;
-            padding: 1.5rem;
-            position: absolute;
-            top: 0;
-            left: 0;
-            // Hover effect animated in jquery:
-            transition: all .2s ease-in-out;
-        }
-    }
-
-    &__posted-by {
-        &:link,
-        &:visited {
-            background: $color-dark;
-            color: $color-white-dark;
-            border-radius: 4px;
-            box-shadow: 1rem 1rem 1rem rgba(0,0,0, .3);
-            font-size: 1.5rem;
-            white-space: nowrap;
-            text-decoration: none;
-            padding: 1.5rem;
-            position: absolute;
-            top: 4rem;
-            left: 4rem; 
-            // Hover effect animated in jquery:
-            transition: all .2s ease-in-out;       
-    
-            span {
-                text-decoration: underline;
-            }
         }
     }
 
@@ -143,29 +101,6 @@
         @media only screen and (max-width: $bp-smaller) {
             max-width: 250px;
             max-height: 167px;
-        }
-    }
-
-    &__btn-box {
-        text-align: center;
-    }
-
-    &__btn {       
-        &:link,
-        &:visited { 
-            display: inline-block;                    
-            text-decoration: none;
-            color: $color-orange;   
-            font-size: 2rem;
-            border-bottom: 1px solid $color-orange;
-            padding: 5px;
-            margin: 0 2rem;
-            transition: all .1s ease;
-        }
-
-        &:hover {
-            background-color: $color-orange;
-            color: $color-white-dark;
         }
     }
 

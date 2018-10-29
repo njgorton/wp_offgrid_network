@@ -6,12 +6,13 @@
         the_post(); ?>
 
         <h2 class="news-article__title post-title"><?php the_title(); ?></h2>
-
-        <div class="news-article__post-details">
-            <a href="<?php echo get_post_type_archive_link('news'); ?>" class="news-article__nav-category" id="first">
-                <i class="far fa-newspaper"></i> News Home
+        
+        <!-- postNav and children are styled in /modules/utilities -->
+        <div class="postNav news-article__navLinks"> 
+            <a href="<?php echo get_post_type_archive_link('news'); ?>" class="postNav__primary" id="first">
+                <i class="far fa-newspaper"></i>&nbsp; News Home
             </a>
-            <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="news-article__posted-by" id="second">
+            <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="postNav__secondary" id="second">
                 By <span><?php the_author(); ?></span>, on <?php the_date(); ?>
             </a>
         </div>
@@ -63,9 +64,9 @@
         </div> 
     <?php } ?>
 
-        <div class="news-article__btn-box">
-            <a href="<?php echo get_post_type_archive_link('news'); ?>" class="news-article__btn">&larr; Back to News</a>
-            <a href="<?php echo site_url('/'); ?>" class="news-article__btn">&larr; Home</a>
+        <div class="paired-btnBox">
+            <a href="<?php echo site_url('/'); ?>" class="paired-btn"><i class="fas fa-home"></i>&nbsp; Home</a>
+            <a href="<?php echo get_post_type_archive_link('news'); ?>" class="paired-btn"><i class="far fa-newspaper"></i>&nbsp; News</a>
         </div>
 </main>
 

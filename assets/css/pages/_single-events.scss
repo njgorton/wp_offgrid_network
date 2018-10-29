@@ -1,0 +1,98 @@
+.event {
+    background: linear-gradient(to left, 
+        rgba($color-white-light *.8, 1), 
+        rgba($color-white-light *.8, .95),
+        rgba($color-white-light *.8, .9), 
+        rgba($color-white-light *.9, .9)),
+        url(./assets/img/events.png);
+    background-repeat: repeat;
+    padding: 10rem 20rem;
+
+    @media only screen and (max-width: $bp-large) {
+        padding: 10rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 10rem 5rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+        padding: 10rem 2rem;
+    }
+
+    &__navLinks {
+        margin-bottom: 15rem;
+    }
+
+    &__feature-img {
+        width: 25rem;
+        height: 25rem;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 3rem;
+        border-radius: 50%;
+        box-shadow: 1rem 1rem 2rem rgba(0,0,0, .3);
+
+        @media only screen and (max-width: $bp-medium-small) {
+            width: 20rem;
+            height: 20rem;
+        }
+    }
+
+    &__title {
+        margin: 0 auto;   
+    }
+
+    &__hr {
+        margin: 5rem 0;
+    }
+
+    &__metaBox {
+        float: left;
+        font-size: 2rem;
+        background: rgba(0,0,0, .5);
+        box-shadow: 1rem 1rem 2rem rgba(0,0,0, .3);
+        padding: 5rem;
+        margin: 1rem 5rem 2rem 2rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            float: none;
+            max-width: 35rem;
+            margin: 5rem auto;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            font-size: 1.7rem;
+            padding: 3rem;
+            max-width: 25rem;
+        }
+
+        p {
+            margin: 1rem 0;
+            background: $color-dark;
+            color: $color-tan;
+            border-radius: 4px;
+            padding: 5px 10px;
+        }
+    }
+
+    &__price {
+        display: block;
+        color: $color-orange;
+        text-align: center;
+        font-size: 4rem;
+        padding: 10px;
+        margin: 0 auto;
+        margin-bottom: 3rem;
+        border: 1px solid $color-orange;
+        border-radius: 4px;
+
+        @media only screen and (max-width: $bp-medium-small) {
+            font-size: 3rem;
+        }
+    }
+}
+
+// ==========================================================================
+// The rest of single-events.php style rules are used from _single-news.scss
+// ==========================================================================

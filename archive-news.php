@@ -4,7 +4,7 @@
 
     <h2 class="news-archive__heading">Latest OGN News</h2>
 
-    <div class="news-archive__pagination">
+    <div class="pagination">
         <?php echo paginate_links(); ?>
     </div>
 
@@ -34,11 +34,11 @@
 
     <hr class="hr_style_1">
 
-    <div class="news-archive__pagination">
+    <div class="pagination">
         <?php echo paginate_links(); ?>
     </div>
 
-    <a href="<?php echo site_url('/'); ?>" class="btn-primary">Home</a>
+    <a href="<?php echo site_url('/'); ?>" class="btn-primary"><i class="fas fa-home"></i>&nbsp; Home</a>
 
 </main>
 

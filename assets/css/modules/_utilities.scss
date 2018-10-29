@@ -49,6 +49,223 @@
 }
 
 
+//=====Secondary Button=====
+.btn-secondary {
+    &:link,
+    &:visited {
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        white-space: nowrap; 
+        font-size: 2.2rem;
+        background-color: rgba(0,0,0, .7);
+        color: $color-tan;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+        border: none;       
+        width: 25%;
+        padding: 1rem;
+        margin: 0 auto;
+        margin-top: 5rem;
+        transition: all .2s;
+
+        @media only screen and (max-width: $bp-medium) {
+            width: 40%;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            width: 50%;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            width: 60%;
+        }
+
+        &:hover {
+            background-color: $color-orange * .8;
+            color: $color-white-dark;
+            box-shadow: 0 1rem 2rem rgba(0,0,0, .5);
+            width: 35%;
+            transform: translateY(-3px);
+
+            @media only screen and (max-width: $bp-medium) {
+                width: 50%;
+            }
+
+            @media only screen and (max-width: $bp-smaller) {
+                width: 60%;
+            }
+
+            @media only screen and (max-width: $bp-smallest) {
+                width: 70%;
+            }
+        }
+    
+        &:active {
+            box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+            transform: translateY(0);
+        }
+    }
+}
+
+
+//=====Paired Buttons=====
+
+// Container for buttons:
+.paired-btnBox { 
+    text-align: center;
+}
+
+// Buttons:
+.paired-btn {       
+    &:link,
+    &:visited { 
+        display: inline-block;                    
+        text-decoration: none;
+        color: $color-orange;   
+        font-size: 2.5rem;
+        border-bottom: 1px solid $color-orange;
+        padding: 10px;
+        margin: 0 2rem;
+        transition: all .1s ease;
+
+        @media only screen and (max-width: $bp-smaller) {
+            font-size: 2rem;
+            padding: 5px;
+        }
+    }
+
+    &:hover {
+        background-color: $color-orange;
+        color: $color-white-dark;
+    }
+}
+
+
+//=====Call Out Button=====
+.call-out-btn {
+    display: block;
+    width: 40%;
+    background: $color-orange;
+    color: $color-white-light;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+    border: none;
+    font-size: 3rem;
+    text-align: center;
+    white-space: nowrap;
+    padding: 1rem;
+    margin: 7rem auto;
+    margin-bottom: 10rem;
+    transition: all .1s ease-out;
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 2.5rem;
+        min-width: 25rem;
+    }
+
+    &:link,
+    &:visited {
+        color: $color-white-light;
+        text-decoration: none;
+    }
+
+    &:hover {
+        background-color: $color-orange * .8;         
+        box-shadow: 0 1rem 2rem rgba(0,0,0, .5);
+        width: 50%;
+        transform: translateY(-5px);
+    }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
+        transform: translateY(0);
+    }
+}
+
+
+//=====Pagination Links=====
+.pagination {
+    font-size: 1.7rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    color: $color-dark;
+
+    @media only screen and (max-width: $bp-small) {
+        margin: 3rem;
+        text-align: center;
+    }
+
+    .page-numbers {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 0 3px 0 0;
+        line-height: 1;
+        text-decoration: none;
+        border-radius: 4px;
+        background: $color-dark;
+        color: $color-tan;
+        box-shadow: -.5rem .5rem 1rem rgba(0,0,0, .3);
+    }
+    .page-numbers.current,
+    a.page-numbers:hover {
+        background: $color-orange;
+        color: $color-white-light;
+    }
+}
+
+
+//=====Post Navigation Links=====
+.postNav {
+    position: relative;
+    display: flex;
+
+    @media only screen and (max-width: $bp-medium-small) {
+        margin-top: 5rem;
+        margin-bottom: 15rem;
+    }
+
+    &__primary {
+        &:link,
+        &:visited {
+            background: $color-green;
+            color: $color-dark;
+            border-radius: 4px;
+            box-shadow: 1rem 1rem 1rem rgba(0,0,0, .3);
+            font-size: 1.5rem;
+            white-space: nowrap;
+            text-decoration: none;
+            padding: 1.5rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            // Hover effect animated in jquery:
+            transition: all .2s ease-in-out;
+        }
+    }
+
+    &__secondary {
+        &:link,
+        &:visited {
+            background: $color-dark;
+            color: $color-white-dark;
+            border-radius: 4px;
+            box-shadow: 1rem 1rem 1rem rgba(0,0,0, .3);
+            font-size: 1.5rem;
+            text-decoration: none;
+            padding: 1.5rem;
+            position: absolute;
+            top: 4rem;
+            left: 4rem; 
+            // Hover effect animated in jquery:
+            transition: all .2s ease-in-out;       
+    
+            span {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
 //=====Related Content Carousel Cards=====
 .cards-related {
     width: 30%;
@@ -102,5 +319,90 @@
             text-decoration: none;
             color: inherit;
         }
+    }
+}
+
+
+//=====Confirmation Modal=====
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, .8);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba(0,0,0, .3);
+    }
+
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;     
+        width: 75%;
+        background: linear-gradient(to right, 
+            rgba($color-white-light *.8, 1), 
+            rgba($color-white-light *.8, .95),
+            rgba($color-white-light *.8, .9), 
+            rgba($color-white-light *.9, .9)),
+            url(./assets/img/events.png);
+        background-repeat: repeat;
+        box-shadow: 1rem 2rem 4rem rgba(0,0,0, .7);
+        padding: 5rem;
+        overflow: hidden;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.25);
+        transition: all .5s .2s;
+
+        @media only screen and (max-width: $bp-medium) {
+            padding: 3rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            width: 90%;
+        }
+    }
+
+    &__heading {
+        font-size: 4rem;
+        text-align: center;
+        color: $color-brown;
+        margin-bottom: 5rem;
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    &__text {
+        font-size: 2.5rem;
+        line-height: 1.5;
+        color: $color-dark;
+        margin: 3rem auto;
+        width: 80%;
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 2rem;
+            margin: 2rem auto;
+        }
+    }
+
+    //OPEN STATES
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
     }
 }

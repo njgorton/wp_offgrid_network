@@ -28,7 +28,7 @@
             ?>
 
             <div class="news-card">
-                <?php the_post_thumbnail('full', array('class' => 'news-card__img')); ?>         
+                <?php the_post_thumbnail('news-medium', array('class' => 'news-card__img')); ?>         
 
                 <div class="news-card__content">
                     <div class="news-card__heading">                
@@ -40,7 +40,7 @@
                     <a href="<?php the_permalink(); ?>" class="news-card__btn">Read Article &rarr;</a>
                 </div>           
             </div>
-            <?php } ?>
+            <?php } wp_reset_postdata(); ?>
         </div>
         
         <a class="news__btn" href="<?php echo get_post_type_archive_link('news'); ?>">See More News</a>
@@ -54,116 +54,63 @@
         </div>
 
         <div class="events__content">
+        <?php
+        $today = date('Ymd');
+        $homepageEvents = new WP_Query(array(
+          'posts_per_page' => 4,
+          'post_type' => 'events',
+          'meta_key' => 'event_date',
+          'orderby' => 'meta_value_num',
+          'order' => 'ASC',
+          'meta_query' => array(
+            array(
+              'key' => 'event_date',
+              'compare' => '>=',
+              'value' => $today,
+              'type' => 'numeric'    
+            )
+          )
+        ));
+        while ($homepageEvents->have_posts()) {
+          $homepageEvents->the_post(); ?>
+
             <div class="events-card" tabindex="0">
-                <img src="img/greenhouse.jpg" alt="Picture of a greenhouse surrounded by a garden." class="events-card__img">
+                <?php the_post_thumbnail('news-square', array('class' => 'events-card__img')); ?>                
                 
                 <div class="events-card__content">
                     <div class="events-card__heading">
-                        <h4>Sept 2nd, 2018 | Online Workshop, 6pm-8pm EST</h4>
-                        <h3>Greenhouses: Food All Winter!</h3>
+                        <h4>
+                            <?php
+                                $eventDate = new DateTime(get_field('event_date'));
+                                $eventLocation = get_field('event_location', false);
+                                echo $eventDate->format('M jS, Y') . ' | ' . $eventLocation;
+                            ?> 
+                        </h4>
+                        
+                        <h3><?php the_title(); ?></h3>
                     </div>
             
-                    <p class="events-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque minima suscipit quos magni nulla officia.</p>   
+                    <p class="events-card__text">
+                        <?php 
+                            if (has_excerpt()) {
+                                echo get_the_excerpt();
+                            } else {
+                                echo wp_trim_words(get_the_content(), 18); 
+                            }
+                        ?>
+                    </p>   
                 </div>
                 
                 <div class="events-card__btn-container">
-                    <a href="#" class="events-card__btn">Sign Up!</a>
-                    <a href="#" class="events-card__btn">See Details &rarr;</a>
+                    <a href="<?php echo site_url('/event-registration'); ?>" class="events-card__btn">Sign Up!</a>
+                    <a href="<?php the_permalink(); ?>" class="events-card__btn">See Details &rarr;</a>
                 </div>
             </div>
 
-            <div class="events-card" tabindex="0">
-                <img src="img/caterpillar.jpg" alt="Close-up of a caterpillar on garden plant." class="events-card__img">
-                
-                <div class="events-card__content">
-                    <div class="events-card__heading">
-                        <h4>May 10th-15th, 2018 | Tuscaloosa, Alabama</h4>
-                        <h3>Organic Pest Management</h3>
-                    </div>
-            
-                    <p class="events-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam sunt voluptate ea explicabo cupiditate repellendus?</p>  
-                </div>
-
-                <div class="events-card__btn-container">
-                    <a href="#" class="events-card__btn">Sign Up!</a>
-                    <a href="#" class="events-card__btn">See Details &rarr;</a>
-                </div> 
-            </div>
-
-            <div class="events-card" tabindex="0">
-                <img src="img/canning.jpg" alt="Preserved fruits in jars." class="events-card__img">
-                
-                <div class="events-card__content">
-                    <div class="events-card__heading">
-                        <h4>Aug 20th, 2018 | Online Workshop, 6pm-8pm EST</h4>
-                        <h3>Preserving and Canning</h3>
-                    </div>
-            
-                    <p class="events-card__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur tempore modi praesentium quas, dolorem hic.</p>  
-                </div>
-
-                <div class="events-card__btn-container">
-                    <a href="#" class="events-card__btn">Sign Up!</a>
-                    <a href="#" class="events-card__btn">See Details &rarr;</a>
-                </div> 
-            </div>
-
-            <div class="events-card" tabindex="0">
-                <img src="img/cattle.jpg" alt="Cattle on eroded river bank." class="events-card__img">
-                
-                <div class="events-card__content">
-                    <div class="events-card__heading">
-                        <h4>Nov 17th, 2018 | Online Workshop, 6pm-8pm EST</h4>
-                        <h3>Livestock and Land Management</h3>
-                    </div>
-            
-                    <p class="events-card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis mollitia beatae nobis facilis, suscipit dolore!</p>  
-                </div>
-
-                <div class="events-card__btn-container">
-                    <a href="#" class="events-card__btn">Sign Up!</a>
-                    <a href="#" class="events-card__btn">See Details &rarr;</a>
-                </div> 
-            </div>
-
-            <div class="events-card" tabindex="0">
-                <img src="img/voltmeter.jpg" alt="Picture of an old voltmeter." class="events-card__img">
-                
-                <div class="events-card__content">
-                    <div class="events-card__heading">
-                        <h4>July 22nd-27th, 2018 | Billings, Missouri</h4>
-                        <h3>Off-Grid Electrical Systems</h3>
-                    </div>
-            
-                    <p class="events-card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut molestiae hic tempore facere cumque sed?.</p> 
-                </div>
-
-                <div class="events-card__btn-container">
-                    <a href="#" class="events-card__btn">Sign Up!</a>
-                    <a href="#" class="events-card__btn">See Details &rarr;</a>
-                </div>
-            </div>
-
-            <div class="events-card" tabindex="0">
-                <img src="img/bees.jpg" alt="Close-up of arms tending to a beehive." class="events-card__img">
-                
-                <div class="events-card__content">
-                    <div class="events-card__heading">
-                        <h4>Oct 11th, 2018 | Online Workshop, 6pm-8pm EST</h4>
-                        <h3>Beekeeping 101</h3>
-                    </div>
-            
-                    <p class="events-card__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, quisquam ab accusantium vitae cumque natus!</p>   
-                </div>  
-
-                <div class="events-card__btn-container">
-                    <a href="#" class="events-card__btn">Sign Up!</a>
-                    <a href="#" class="events-card__btn">See Details &rarr;</a>
-                </div>
-            </div>
+        <?php } wp_reset_postdata(); ?>
         </div>
 
-        <button class="events__btn">See Full Schedule!</button>
+        <a class="btn-secondary" href="<?php echo get_post_type_archive_link('events'); ?>">See Full Schedule!</a>
     </section>
 
 

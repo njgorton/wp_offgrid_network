@@ -137,7 +137,7 @@
     
 .news-card {
     width: 30%;
-    min-height: 50rem;
+    min-height: 48rem;
     margin: 3rem 5rem 3rem 0;
     background-color: rgba(0,0,0, .7);
     box-shadow: 1rem 1rem 2rem rgba(0,0,0, .5);
@@ -215,9 +215,7 @@
         font-size: 1.7rem;
         border-bottom: 1px solid $color-orange;
         padding: 5px;
-        position: absolute;
-        // bottom: 5rem;
-        // right: 5rem; 
+        position: absolute; 
         bottom: 3rem;
         right: 3rem;
         
@@ -296,59 +294,6 @@
             justify-content: center;
         }
     }
-
-    &__btn {
-        display: block;
-        background-color: rgba(0,0,0, .7);
-        color: $color-tan;
-        box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
-        border: none;
-        cursor: pointer;
-        white-space: nowrap;        
-        width: 25%;
-        font-size: 2.2rem;
-        padding: 1rem;
-        margin: 0 auto;
-        margin-top: 5rem;
-        transition: all .2s;
-
-        @media only screen and (max-width: $bp-medium) {
-            width: 40%;
-        }
-
-        @media only screen and (max-width: $bp-smaller) {
-            width: 50%;
-        }
-
-        @media only screen and (max-width: $bp-smallest) {
-            width: 60%;
-        }
-
-        &:hover {
-            background-color: $color-orange * .8;
-            color: $color-white-dark;
-            box-shadow: 0 1rem 2rem rgba(0,0,0, .5);
-            width: 35%;
-            transform: translateY(-3px);
-
-            @media only screen and (max-width: $bp-medium) {
-                width: 50%;
-            }
-
-            @media only screen and (max-width: $bp-smaller) {
-                width: 60%;
-            }
-
-            @media only screen and (max-width: $bp-smallest) {
-                width: 70%;
-            }
-        }
-    
-        &:active {
-            box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
-            transform: translateY(0);
-        }
-    }
 }
 
 .events-card {
@@ -362,14 +307,6 @@
     
     @media only screen and (max-width: $bp-medium-large) {
         max-width: 80rem;
-
-        &:nth-last-child(1) {
-            display: none;
-        }
-
-        &:nth-last-child(2) {
-            display: none;
-        }
     }
 
     &:hover .events-card__img {
@@ -398,7 +335,7 @@
 
         @media only screen and (max-width: $bp-medium-large) {
             max-width: 30rem;
-            max-height: 30rem;
+            //max-height: 30rem;
         }
 
         @media only screen and (max-width: $bp-small) {
@@ -515,8 +452,7 @@
         &:visited { 
             background-color: $color-orange;
             color: $color-white-dark;
-            box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);
-            cursor: pointer;           
+            box-shadow: 0 .5rem 1rem rgba(0,0,0, .5);        
             text-decoration: none;            
             font-size: 2.5rem;
             padding: 10px;        
