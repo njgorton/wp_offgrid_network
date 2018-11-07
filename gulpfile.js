@@ -47,16 +47,10 @@ var styleSRC                = './assets/css/style.scss'; // Path to main .scss f
 var styleDestination        = './'; // Path to place the compiled CSS file.
 // Default set to root folder.
 
-// JS Vendor related.
-var jsVendorSRC             = './assets/js/vendor/*.js'; // Path to JS vendor folder.
-var jsVendorDestination     = './assets/js/'; // Path to place the compiled JS vendors file.
-var jsVendorFile            = 'vendors'; // Compiled JS vendors file name.
-// Default set to vendors i.e. vendors.js.
-
 // JS Custom related.
-var jsCustomSRC             = './assets/js/custom/*.js'; // Path to JS custom scripts folder.
-var jsCustomDestination     = './assets/js/'; // Path to place the compiled JS custom scripts file.
-var jsCustomFile            = 'scripts-bundled'; // Compiled JS custom file name.
+// var jsCustomSRC             = './assets/js/scripts.js'; // Path to JS custom scripts folder.
+// var jsCustomDestination     = './assets/js/'; // Path to place the compiled JS custom scripts file.
+// var jsCustomFile            = 'scripts-bundled'; // Compiled JS custom file name.
 // Default set to custom i.e. custom.js.
 
 // Images related.
@@ -65,8 +59,7 @@ var imagesDestination       = './assets/img/'; // Destination folder of optimize
 
 // Watch files paths.
 var styleWatchFiles         = './assets/css/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
-var vendorJSWatchFiles      = './assets/js/vendor/*.js'; // Path to all vendor JS files.
-var customJSWatchFiles      = './assets/js/custom/*.js'; // Path to all custom JS files.
+var customJSWatchFiles      = './assets/js/modules/*.js'; // Path to all custom JS files.
 var projectPHPWatchFiles    = './**/*.php'; // Path to all PHP files.
 
 
@@ -94,6 +87,8 @@ const AUTOPREFIXER_BROWSERS = [
  * Load gulp plugins and passing them semantic names.
  */
 var gulp         = require('gulp'); // Gulp of-course
+var settings     = require('./settings');
+var webpack      = require('webpack');
 
 // CSS related plugins.
 var sass         = require('gulp-sass'); // Gulp pluign for Sass compilation.
@@ -102,8 +97,8 @@ var autoprefixer = require('gulp-autoprefixer'); // Autoprefixing magic.
 var mmq          = require('gulp-merge-media-queries'); // Combine matching media queries into one media query definition.
 
 // JS related plugins.
-var concat       = require('gulp-concat'); // Concatenates JS files
-var uglify       = require('gulp-uglify'); // Minifies JS files
+// var concat       = require('gulp-concat'); // Concatenates JS files
+// var uglify       = require('gulp-uglify'); // Minifies JS files
 
 // Image realted plugins.
 var imagemin     = require('gulp-imagemin'); // Minify PNG, JPEG, GIF and SVG images with imagemin.
@@ -217,20 +212,21 @@ gulp.task( 'browser-sync', function() {
   *     3. Renames the JS file with suffix .min.js
   *     4. Uglifes/Minifies the JS file and generates vendors.min.js
   */
- gulp.task( 'vendorsJs', function() {
-  gulp.src( jsVendorSRC )
-    .pipe( concat( jsVendorFile + '.js' ) )
-    .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-    .pipe( gulp.dest( jsVendorDestination ) )
-    .pipe( rename( {
-      basename: jsVendorFile,
-      suffix: '.min'
-    }))
-    .pipe( uglify() )
-    .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-    .pipe( gulp.dest( jsVendorDestination ) )
-    .pipe( notify( { message: 'TASK: "vendorsJs" Completed! 💯', onLast: true } ) );
- });
+
+//  gulp.task( 'vendorsJs', function() {
+//   gulp.src( jsVendorSRC )
+//     .pipe( concat( jsVendorFile + '.js' ) )
+//     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+//     .pipe( gulp.dest( jsVendorDestination ) )
+//     .pipe( rename( {
+//       basename: jsVendorFile,
+//       suffix: '.min'
+//     }))
+//     .pipe( uglify() )
+//     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+//     .pipe( gulp.dest( jsVendorDestination ) )
+//     .pipe( notify( { message: 'TASK: "vendorsJs" Completed! 💯', onLast: true } ) );
+//  });
 
 
  /**
@@ -244,20 +240,34 @@ gulp.task( 'browser-sync', function() {
   *     3. Renames the JS file with suffix .min.js
   *     4. Uglifes/Minifies the JS file and generates custom.min.js
   */
- gulp.task( 'customJS', function() {
-    gulp.src( jsCustomSRC )
-    .pipe( concat( jsCustomFile + '.js' ) )
-    .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-    .pipe( gulp.dest( jsCustomDestination ) )
-    .pipe( rename( {
-      basename: jsCustomFile,
-      suffix: '.min'
-    }))
-    .pipe( uglify() )
-    .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-    .pipe( gulp.dest( jsCustomDestination ) )
-    .pipe( notify( { message: 'TASK: "customJs" Completed! 💯', onLast: true } ) );
- });
+
+//  gulp.task( 'customJS', function() {
+//     gulp.src( jsCustomSRC )
+//     .pipe( concat( jsCustomFile + '.js' ) )
+//     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+//     .pipe( gulp.dest( jsCustomDestination ) )
+//     .pipe( rename( {
+//       basename: jsCustomFile,
+//       suffix: '.min'
+//     }))
+//     .pipe( uglify() )
+//     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+//     .pipe( gulp.dest( jsCustomDestination ) )
+//     .pipe( notify( { message: 'TASK: "customJs" Completed! 💯', onLast: true } ) );
+//  });
+
+
+ gulp.task('customJS', function(callback) {
+  webpack(require('./webpack.config.js'), function(err, stats) {
+    if (err) {
+      console.log(err.toString());
+    }
+
+    console.log(stats.toString());
+    callback();
+  })
+  .pipe( notify( { message: 'TASK: "customJs" Completed! 💯', onLast: true } ) );
+});
 
 
  /**
@@ -316,9 +326,8 @@ gulp.task( 'browser-sync', function() {
   *
   * Watches for file changes and runs specific tasks.
   */
- gulp.task( 'default', ['styles', 'vendorsJs', 'customJS', 'images', 'browser-sync'], function () {
+ gulp.task( 'default', ['styles', 'customJS', 'images', 'browser-sync'], function () {
   gulp.watch( projectPHPWatchFiles, reload ); // Reload on PHP file changes.
   gulp.watch( styleWatchFiles, [ 'styles' ] ); // Reload on SCSS file changes.
-  gulp.watch( vendorJSWatchFiles, [ 'vendorsJs', reload ] ); // Reload on vendorsJs file changes.
   gulp.watch( customJSWatchFiles, [ 'customJS', reload ] ); // Reload on customJS file changes.
  });
