@@ -1,6 +1,11 @@
 {
   "name": "the_offgrid_network",
-  "version": "1.0",
+  "version": "1.0.0",
+  "description": "A personal WordPress development project for to practice building a complete and fully-functional WordPress site with my own custom theme.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/njgorton/wp_offgrid_network.git"

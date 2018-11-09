@@ -7,7 +7,7 @@
 //Original path:
 //exports.themeLocation = './public/wp-content/themes/offgrid_network_theme/';
 
-exports.themeLocation = './offgrid_network_theme/';
+exports.themeLocation = '../offgrid_network_theme/';
 exports.urlToPreview = 'http://the-offgrid-network.local/';
 
 // Simply remove the two slashes at the front of those lines

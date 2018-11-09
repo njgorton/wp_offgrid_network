@@ -1,33 +1,3 @@
-/**
- * Gulpfile.
- *
- * Gulp with WordPress.
- *
- * Implements:
- *      1. Live reloads browser with BrowserSync.
- *      2. CSS: Sass to CSS conversion, error catching, Autoprefixing, Sourcemaps,
- *         CSS minification, and Merge Media Queries.
- *      3. JS: Concatenates & uglifies Vendor and Custom JS files.
- *      4. Images: Minifies PNG, JPEG, GIF and SVG images.
- *      5. Watches files for changes in CSS or JS.
- *      6. Watches files for changes in PHP.
- *      7. Corrects the line endings.
- *      8. InjectCSS instead of browser page reload.
- *      9. Generates .pot file for i18n and l10n.
- *
- * @author Ahmad Awais (@ahmadawais)
- * @version 1.0.3
- */
-
-/**
- * Configuration.
- *
- * Project Configuration for gulp tasks.
- *
- * In paths you can add <<glob or array of globs>>. Edit the variables as per your project requirements.
- */
-
-// START Editing Project Variables.
 // Project related.
 var project                 = 'offgrid_network_theme'; // Project Name.
 var projectURL              = 'http://the-offgrid-network.local/'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
@@ -46,12 +16,6 @@ var team                    = 'WPTie <your_email@email.com>'; // Team's Email ID
 var styleSRC                = './assets/css/style.scss'; // Path to main .scss file.
 var styleDestination        = './'; // Path to place the compiled CSS file.
 // Default set to root folder.
-
-// JS Custom related.
-// var jsCustomSRC             = './assets/js/scripts.js'; // Path to JS custom scripts folder.
-// var jsCustomDestination     = './assets/js/'; // Path to place the compiled JS custom scripts file.
-// var jsCustomFile            = 'scripts-bundled'; // Compiled JS custom file name.
-// Default set to custom i.e. custom.js.
 
 // Images related.
 var imagesSRC               = './assets/img/raw/**/*.{png,jpg,gif,svg}'; // Source folder of images which should be optimized.
@@ -79,11 +43,9 @@ const AUTOPREFIXER_BROWSERS = [
     'bb >= 10'
   ];
 
-// STOP Editing Project Variables.
 
 /**
  * Load Plugins.
- *
  * Load gulp plugins and passing them semantic names.
  */
 var gulp         = require('gulp'); // Gulp of-course
@@ -95,10 +57,6 @@ var sass         = require('gulp-sass'); // Gulp pluign for Sass compilation.
 var minifycss    = require('gulp-uglifycss'); // Minifies CSS files.
 var autoprefixer = require('gulp-autoprefixer'); // Autoprefixing magic.
 var mmq          = require('gulp-merge-media-queries'); // Combine matching media queries into one media query definition.
-
-// JS related plugins.
-// var concat       = require('gulp-concat'); // Concatenates JS files
-// var uglify       = require('gulp-uglify'); // Minifies JS files
 
 // Image realted plugins.
 var imagemin     = require('gulp-imagemin'); // Minify PNG, JPEG, GIF and SVG images with imagemin.
@@ -201,62 +159,10 @@ gulp.task( 'browser-sync', function() {
  });
 
 
- /**
-  * Task: `vendorJS`.
-  *
-  * Concatenate and uglify vendor JS scripts.
-  *
-  * This task does the following:
-  *     1. Gets the source folder for JS vendor files
-  *     2. Concatenates all the files and generates vendors.js
-  *     3. Renames the JS file with suffix .min.js
-  *     4. Uglifes/Minifies the JS file and generates vendors.min.js
-  */
-
-//  gulp.task( 'vendorsJs', function() {
-//   gulp.src( jsVendorSRC )
-//     .pipe( concat( jsVendorFile + '.js' ) )
-//     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-//     .pipe( gulp.dest( jsVendorDestination ) )
-//     .pipe( rename( {
-//       basename: jsVendorFile,
-//       suffix: '.min'
-//     }))
-//     .pipe( uglify() )
-//     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-//     .pipe( gulp.dest( jsVendorDestination ) )
-//     .pipe( notify( { message: 'TASK: "vendorsJs" Completed! 💯', onLast: true } ) );
-//  });
-
-
- /**
+/**
   * Task: `customJS`.
-  *
-  * Concatenate and uglify custom JS scripts.
-  *
-  * This task does the following:
-  *     1. Gets the source folder for JS custom files
-  *     2. Concatenates all the files and generates custom.js
-  *     3. Renames the JS file with suffix .min.js
-  *     4. Uglifes/Minifies the JS file and generates custom.min.js
-  */
-
-//  gulp.task( 'customJS', function() {
-//     gulp.src( jsCustomSRC )
-//     .pipe( concat( jsCustomFile + '.js' ) )
-//     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-//     .pipe( gulp.dest( jsCustomDestination ) )
-//     .pipe( rename( {
-//       basename: jsCustomFile,
-//       suffix: '.min'
-//     }))
-//     .pipe( uglify() )
-//     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
-//     .pipe( gulp.dest( jsCustomDestination ) )
-//     .pipe( notify( { message: 'TASK: "customJs" Completed! 💯', onLast: true } ) );
-//  });
-
-
+  * Require webpack for that junk...
+*/
  gulp.task('customJS', function(callback) {
   webpack(require('./webpack.config.js'), function(err, stats) {
     if (err) {
@@ -265,8 +171,7 @@ gulp.task( 'browser-sync', function() {
 
     console.log(stats.toString());
     callback();
-  })
-  .pipe( notify( { message: 'TASK: "customJs" Completed! 💯', onLast: true } ) );
+  });
 });
 
 
@@ -323,7 +228,6 @@ gulp.task( 'browser-sync', function() {
 
  /**
   * Watch Tasks.
-  *
   * Watches for file changes and runs specific tasks.
   */
  gulp.task( 'default', ['styles', 'customJS', 'images', 'browser-sync'], function () {
