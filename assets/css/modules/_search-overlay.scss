@@ -13,6 +13,12 @@
   transform: scale(1.09);
   transition: opacity .3s, transform .3s, visibility .3s;
 
+  &--active {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
+
   &__top {
     background-color: rgba($color-white-dark * .4, .9);
     border-bottom: solid 1px $color-orange;
@@ -24,10 +30,6 @@
     align-items: center;
     width: 70%;
     margin: 0 auto;
-
-    &::placeholder {
-      color: white;
-    }
   }
 
   &__icon {
@@ -42,20 +44,15 @@
     }
   }
 
-  &--active {
-    visibility: visible;
-    opacity: 1;
-    transform: scale(1);
+  &__search-term {
+    border: none;
+    padding: 3rem;
+    background-color: transparent;
+    font-size: 6rem;
+    font-family: $font-content;
+    outline: none;
+    color: $color-orange;
   }
-
-  // &__section-title {
-  //   margin: 3rem 0 1px 0;
-  //   font-weight: 400;
-  //   color: $color-tan;
-  //   font-size: 2rem;
-  //   padding: 1.5rem 0;
-  //   border-bottom: 1px solid #CCC;
-  // }
 
   &__close {
     font-size: 6rem;
@@ -68,22 +65,47 @@
     }
   }
 
-  &__results {
-    font-size: 3rem;
+  &__title {
+    font-size: 4rem;
     color: $color-tan;
     text-align: center;
     margin-top: 5rem;
   }
-}
-  
-.search-term {
-border: none;
-padding: 3rem;
-background-color: transparent;
-font-size: 6rem;
-font-family: $font-content;
-outline: none;
-color: $color-orange;
+
+  &__link-list {
+    background-color: rgba($color-white-dark * .4, .8);
+    list-style: none;
+    width: 50%;
+    margin: 5rem auto;
+    border-radius: 10px;
+    padding: 3rem;
+
+    li {
+      padding: 2.5rem 0;
+      
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $color-white-dark;
+      }
+
+      a {
+        font-size: 2.5rem;
+        color: $color-brown;
+        transition: color .2s;
+
+        &:hover {
+          color: $color-tan;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &__noResults {
+    font-size: 5rem;
+    text-align: center;
+    color: $color-brown;
+    margin-top: 10rem;
+  }
 }
 
 .body-no-scroll {
