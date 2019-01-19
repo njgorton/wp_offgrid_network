@@ -58,18 +58,20 @@ class Search {
     getResults() {
         $.when(
             $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val()),
-            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val())
-            ).then((posts, pages) => {
-            var combinedResults = posts[0].concat(pages[0]);
+            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val()),
+            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/news?search=' + this.searchField.val()),
+            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/events?search=' + this.searchField.val())
+            ).then((posts, pages, news, events) => {
+            var combinedResults = posts[0].concat(pages[0], news[0], events[0]);
             this.resultsDiv.html(`
                 <h2 class="search-overlay__title">Search Results...</h2>
                 ${combinedResults.length ? '<ul class="search-overlay__link-list">' : '<p class="search-overlay__noResults">Sorry, nothing matches your search.</p>'}
-                    ${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+                ${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a><br> ${item.type == 'news' ? `<p>by ${item.authorName}</p>` : ''}</li>`).join('')}
                 ${combinedResults.length ? '</ul>' : ''}
             `);
             this.isSpinnerVisible = false;
         }, () => {
-            this.resultsDiv.html('<p>Whoops... something went wrong; please try again.</p>');
+            this.resultsDiv.html('<p class="search-overlay__noResults">Whoops... something went wrong; please try again.</p>');
         });
     }
 

@@ -1,5 +1,13 @@
 <?php
 
+function offgrid_network_custom_rest() {
+    register_rest_field('news', 'authorName', array(
+        'get_callback' => function() {return get_the_author();}
+    ));
+}
+
+add_action('rest_api_init', 'offgrid_network_custom_rest');
+
 function offgrid_network_files() {
     wp_enqueue_style('offgrid_network_main_styles', get_stylesheet_uri());
     wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Lato:400,700');
