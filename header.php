@@ -16,33 +16,30 @@
 </header>
 
 <!-- ==========================NAVIGATION============================== -->
-<nav class="navigation">
-    <div class="navigation__search">
-        <input type="search" class="search-text" placeholder="Search the site..." aria-label="Search through site content">
-        <button type="submit" class="search-btn">
+<nav class="nav">
+    <ul class="nav__list">
+        <li class="nav__item"><a href="<?php echo site_url('/'); ?>" id="home" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="<?php echo get_post_type_archive_link('news'); ?>" class="nav__link">News</a></li>
+        <li class="nav__item"><a href="<?php echo get_post_type_archive_link('events'); ?>" class="nav__link">Events</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Forum</a></li>
+        <li class="nav__item"><a href="<?php echo site_url('/about-ogn'); ?>" class="nav__link">About</a></li>
+    </ul>
+
+    <div class="nav__user-menu">
+        <div class="nav__search js-search-trigger">
             <i class="fas fa-search"></i>
-        </button>
-    </div>
-    
-    <div class="navigation__user-profile">
-        <p class="user-text">Logged in as:</p>
-        <p class="user-name" tabindex="0">njgorton</p>
-        <img src="<?php bloginfo('stylesheet_directory');?>/assets/img/user-img.jpg" alt="User's profile Image" class="user-img" tabindex="0">
-        <div class="user-menu">                                  
-            <i class="fas fa-caret-square-down user-menuIcon" tabindex="0"></i>
-            <span class="user-menuBadge">2</span>   
-        </div>                                                  
+        </div> 
+
+        <p class="nav__user-text">Logged in as:</p>
+        <p class="nav__user-name" tabindex="0">njgorton</p>
+
+        <div class="nav__user-profile"> 
+            <img src="<?php bloginfo('stylesheet_directory');?>/assets/img/user-img.jpg" alt="User's profile Image" class="nav__user-img" tabindex="0">                                 
+            <span class="nav__user-notification">2</span>   
+        </div>                                                 
     </div>
 
-    <div class="navigation__mobile">
+    <div class="nav__mobile">
         <a id="nav-toggle" href="#!"><span></span></a>
     </div>
-
-    <ul class="navigation__list">
-        <li class="navigation__item"><a href="<?php echo site_url('/'); ?>" id="home" class="navigation__link">Home</a></li>
-        <li class="navigation__item"><a href="<?php echo get_post_type_archive_link('news'); ?>" class="navigation__link">News</a></li>
-        <li class="navigation__item"><a href="<?php echo get_post_type_archive_link('events'); ?>" class="navigation__link">Events</a></li>
-        <li class="navigation__item"><a href="#" class="navigation__link">Forum</a></li>
-        <li class="navigation__item"><a href="<?php echo site_url('/about-ogn'); ?>" class="navigation__link">About</a></li>
-    </ul>
 </nav>
