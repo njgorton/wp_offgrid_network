@@ -56,23 +56,55 @@ class Search {
     }
 
     getResults() {
-        $.when(
-            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val()),
-            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val()),
-            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/news?search=' + this.searchField.val()),
-            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/events?search=' + this.searchField.val())
-            ).then((posts, pages, news, events) => {
-            var combinedResults = posts[0].concat(pages[0], news[0], events[0]);
+        $.getJSON(ogn_data.root_url + '/wp-json/offgrid/v1/search?term=' + this.searchField.val(), (results) => {
             this.resultsDiv.html(`
-                <h2 class="search-overlay__title">Search Results...</h2>
-                ${combinedResults.length ? '<ul class="search-overlay__link-list">' : '<p class="search-overlay__noResults">Sorry, nothing matches your search.</p>'}
-                ${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a><br> ${item.type == 'news' ? `<p>by ${item.authorName}</p>` : ''}</li>`).join('')}
-                ${combinedResults.length ? '</ul>' : ''}
+                <ul class="search-overlay__link-list">
+                    <!-- =====EVENT RESULTS===== -->
+                    ${results.events.length ? '<li><h3>Upcoming Events!</h3><br>' : ''}
+                    ${results.events.map(item => `
+                        <a href="${item.permalink}">${item.title}</a>
+                        <span>${item.month}</span>
+                        <span>${item.day}</span>
+                        <p>${item.description}<a href="${item.permalink}">Learn more</a></p>
+                    `).join('')}
+                    ${results.events.length ? '</li>' : ''}
+
+                    <!-- =====NEWS RESULTS===== -->
+                    ${results.news.length ? '<li><h3>News</h3><br>' : ''}
+                    ${results.news.map(item => `
+                        <a href="${item.permalink}">${item.title}</a>
+                        ${item.postType == 'news' ? `posted by, ${item.authorName}` : ''}
+                        <p>${item.description}<a href="${item.permalink}">Learn more</a></p>
+                    `).join('')}
+                    ${results.news.length ? '</li>' : ''}
+                        
+                    <!-- =====GENERAL SEARCH RESULTS===== -->
+                    ${results.generalInfo.length ? '<li><h3>General Info</h3><br>' : ''}
+                    ${results.generalInfo.map(item => `<li><a href="${item.permalink}">${item.title}</a></li>`).join('')}
+                    ${results.generalInfo.length ? '</li>' : ''}
+                </ul>
             `);
             this.isSpinnerVisible = false;
-        }, () => {
-            this.resultsDiv.html('<p class="search-overlay__noResults">Whoops... something went wrong; please try again.</p>');
         });
+
+        // DELETE THIS CODE LATER ON...
+        // $.when(
+        //     $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val()),
+        //     $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val()),
+        //     $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/news?search=' + this.searchField.val()),
+        //     $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/events?search=' + this.searchField.val())
+        //     ).then((posts, pages, news, events) => {
+        //     var combinedResults = posts[0].concat(pages[0], news[0], events[0]);
+        //     this.resultsDiv.html(`
+        //         <h2 class="search-overlay__title">Search Results...</h2>
+        //         ${combinedResults.length ? '<ul class="search-overlay__link-list">' : '<p class="search-overlay__noResults">Sorry, nothing matches your search.</p>'}
+        //         ${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a><br> ${item.type == 'news' ? `<p>by ${item.authorName}</p>` : ''}</li>`).join('')}
+        //         ${combinedResults.length ? '</ul>' : ''}
+        //     `);
+        //     this.isSpinnerVisible = false;
+        // }, () => {
+        //     this.resultsDiv.html('<p class="search-overlay__noResults">Whoops... something went wrong; please try again.</p>');
+        // });
     }
 
     keyPressDispatcher(e) { 

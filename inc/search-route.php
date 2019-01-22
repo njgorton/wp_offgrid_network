@@ -29,7 +29,6 @@ function offgridSearchResults($data) {
                 'title' => get_the_title(),
                 'permalink' => get_the_permalink(),
                 'postType' => get_post_type(),
-                'authorName' => get_the_author()
             ));
         }
 
@@ -44,6 +43,8 @@ function offgridSearchResults($data) {
             array_push($results['news'], array(
                 'title' => get_the_title(),
                 'permalink' => get_the_permalink(),
+                'postType' => get_post_type(),
+                'authorName' => get_the_author(),
                 'image' => get_the_post_thumbnail_url(),
                 'description' => $description
             ));
@@ -61,6 +62,7 @@ function offgridSearchResults($data) {
             array_push($results['events'], array(
                 'title' => get_the_title(),
                 'permalink' => get_the_permalink(),
+                'postType' => get_post_type(),
                 'month' => $eventDate->format('M'),
                 'day' => $eventDate->format('d'),
                 'image' => get_the_post_thumbnail_url(),

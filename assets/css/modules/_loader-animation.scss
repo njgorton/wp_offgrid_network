@@ -1,0 +1,59 @@
+//======Loader Animation======
+.loader {
+    background: transparent;
+    margin: 100px auto;
+    width: 300px;
+    height: 300px;
+    animation: spin 10s infinite;
+  }
+  .square {
+    background: $color-orange;
+    border-radius: 5px;
+    float: left;
+    clear: right;
+    margin: 9px;
+    width: 81px;
+    height: 81px;
+    animation-name: disappear;
+    animation-direction: alternate;
+    animation-duration: 800ms;
+    animation-iteration-count: infinite;
+  }
+  .loader .square:nth-child(1) { animation-delay: 200ms; }
+  .loader .square:nth-child(2) { animation-delay: 400ms; }
+  .loader .square:nth-child(3) { animation-delay: 600ms; }
+  .loader .square:nth-child(4) { animation-delay: 400ms; }
+  .loader .square:nth-child(5) { animation-delay: 600ms; }
+  .loader .square:nth-child(6) { animation-delay: 800ms; }
+  .loader .square:nth-child(7) { animation-delay: 600ms; }
+  .loader .square:nth-child(8) { animation-delay: 800ms; }
+  .loader .square:nth-child(9) { animation-delay: 1s; }
+  
+  @keyframes disappear {
+    0% {
+      background-color: $color-orange;
+      transform: scale(1, 1);
+    }
+    100% {
+      background-color : $color-brown;
+      transform: scale(0, 0);
+    }
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(90deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    75% {
+      transform: rotate(270deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
