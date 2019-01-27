@@ -33,31 +33,19 @@ function offgridSearchResults($data) {
         }
 
         if (get_post_type() == 'news') {
-            $description = null;
-            if (has_excerpt()) {
-                $description = get_the_excerpt();
-            } else {
-                $description = wp_trim_words(get_the_content(), 18);
-            }
-
             array_push($results['news'], array(
                 'title' => get_the_title(),
                 'permalink' => get_the_permalink(),
                 'postType' => get_post_type(),
+                'postedOn' => get_the_date('M d, Y'),
                 'authorName' => get_the_author(),
-                'image' => get_the_post_thumbnail_url(),
-                'description' => $description
+                'image' => get_the_post_thumbnail_url(0, 'news-square'),
+                'description' => wp_trim_words(get_the_content(), 50)
             ));
         }
 
         if (get_post_type() == 'events') {
             $eventDate = new DateTime(get_field('event_date'));
-            $description = null;
-            if (has_excerpt()) {
-                $description = get_the_excerpt();
-            } else {
-                $description = wp_trim_words(get_the_content(), 18);
-            }
 
             array_push($results['events'], array(
                 'title' => get_the_title(),
@@ -65,8 +53,9 @@ function offgridSearchResults($data) {
                 'postType' => get_post_type(),
                 'month' => $eventDate->format('M'),
                 'day' => $eventDate->format('d'),
-                'image' => get_the_post_thumbnail_url(),
-                'description' => $description
+                'year' => $eventDate->format('Y'),
+                'image' => get_the_post_thumbnail_url(0, 'news-square'),
+                'description' => wp_trim_words(get_the_content(), 50)
             ));
         }
     }
