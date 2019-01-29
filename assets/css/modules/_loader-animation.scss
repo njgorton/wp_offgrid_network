@@ -1,10 +1,16 @@
 //======Loader Animation======
 .loader {
     background: transparent;
-    margin: 100px auto;
+    margin: 150px auto;
     width: 300px;
     height: 300px;
     animation: spin 10s infinite;
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin: 75px auto;
+      width: 150px;
+      height: 150px;
+    }
   }
   .square {
     background: $color-orange;
@@ -18,6 +24,12 @@
     animation-direction: alternate;
     animation-duration: 800ms;
     animation-iteration-count: infinite;
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin: 4px;
+      width: 40px;
+      height: 40px;
+    }
   }
   .loader .square:nth-child(1) { animation-delay: 200ms; }
   .loader .square:nth-child(2) { animation-delay: 400ms; }

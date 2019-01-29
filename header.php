@@ -31,11 +31,11 @@
         </div> 
 
         <p class="nav__user-text">Logged in as:</p>
-        <p class="nav__user-name" tabindex="0">njgorton</p>
 
         <div class="nav__user-profile"> 
-            <img src="<?php bloginfo('stylesheet_directory');?>/assets/img/user-img.jpg" alt="User's profile Image" class="nav__user-img" tabindex="0">                                 
-            <span class="nav__user-notification">2</span>   
+            <span class="nav__user-notification">2</span>
+            <img src="<?php bloginfo('stylesheet_directory');?>/assets/img/user-img.jpg" alt="User's profile Image" class="nav__user-img" tabindex="0">                                  
+            <p class="nav__user-name">njgorton</p>  
         </div>                                                 
     </div>
 
