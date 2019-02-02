@@ -31,19 +31,19 @@ class Search {
 
             if(this.searchField.val()) {
                 if(!this.isSpinnerVisible) {
-                    this.resultsDiv.html(
-                        '<div class="loader">\
-                            <div class="square"></div>\
-                            <div class="square"></div>\
-                            <div class="square"></div>\
-                            <div class="square"></div>\
-                            <div class="square"></div>\
-                            <div class="square"></div>\
-                            <div class="square"></div>\
-                            <div class="square"></div>\
-                            <div class="square"></div>\
-                        </div>'
-                    );
+                    this.resultsDiv.html(`
+                        <div class="loader">
+                            <div class="square"></div>
+                            <div class="square"></div>
+                            <div class="square"></div>
+                            <div class="square"></div>
+                            <div class="square"></div>
+                            <div class="square"></div>
+                            <div class="square"></div>
+                            <div class="square"></div>
+                            <div class="square"></div>
+                        </div>
+                    `);
                     this.isSpinnerVisible = true;
                 }
                 this.typingTimer = setTimeout(this.getResults.bind(this), 750);
@@ -56,22 +56,53 @@ class Search {
     }
 
     getResults() {
-        $.when(
-            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val()),
-            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val()),
-            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/news?search=' + this.searchField.val()),
-            $.getJSON(ogn_data.root_url + '/wp-json/wp/v2/events?search=' + this.searchField.val())
-            ).then((posts, pages, news, events) => {
-            var combinedResults = posts[0].concat(pages[0], news[0], events[0]);
+        $.getJSON(ogn_data.root_url + '/wp-json/offgrid/v1/search?term=' + this.searchField.val(), (results) => {
             this.resultsDiv.html(`
-                <h2 class="search-overlay__title">Search Results...</h2>
-                ${combinedResults.length ? '<ul class="search-overlay__link-list">' : '<p class="search-overlay__noResults">Sorry, nothing matches your search.</p>'}
-                ${combinedResults.map(item => `<li><a href="${item.link}">${item.title.rendered}</a><br> ${item.type == 'news' ? `<p>by ${item.authorName}</p>` : ''}</li>`).join('')}
-                ${combinedResults.length ? '</ul>' : ''}
+                ${!results.events.length && !results.news.length && !results.generalInfo.length ?
+                    '<p class="search-overlay__noResults">Sorry, nothing matches your search.</p>' : `
+                    <h2 class="search-overlay__heading">Search Results...</h2>
+                    <div class="search-overlay__resultsDiv">
+                    `}
+                    
+                    <!-- =====EVENT RESULTS===== -->
+                    ${results.events.length ? '<h3 class="search-overlay__category-heading">Upcoming Events!</h3><ul class="search-overlay__list">' : ''}
+                    ${results.events.map(item => `
+                        <li class="search-overlay__listItem">
+                            <a class="search-overlay__title" href="${item.permalink}"><i class="far fa-calendar-alt"></i>${item.title}</a>
+                            <h4 class="search-overlay__subtitle">On ${item.month} ${item.day}, ${item.year}</h4>
+                            <div class="search-overlay__content">
+                                <image src="${item.image}" class="search-overlay__image">
+                                <p class="search-overlay__description">${item.description}&nbsp;<a href="${item.permalink}" class="search-overlay__readMore">Learn more</a></p>
+                            </div>
+                        </li>
+                    `).join('')}
+                    ${results.events.length ? '</ul>' : ''}
+
+                    <!-- =====NEWS RESULTS===== -->
+                    ${results.news.length ? '<h3 class="search-overlay__category-heading"> Related News</h3><ul class="search-overlay__list">' : ''}
+                    ${results.news.map(item => `
+                        <li class="search-overlay__listItem">
+                            <a class="search-overlay__title" href="${item.permalink}"><i class="far fa-newspaper"></i>${item.title}</a>
+                            <h4 class="search-overlay__subtitle">Posted by ${item.authorName}, on ${item.postedOn}</h4>
+                            <div class="search-overlay__content">
+                                <image src="${item.image}" class="search-overlay__image">
+                                <p class="search-overlay__description">${item.description}&nbsp;<a href="${item.permalink}" class="search-overlay__readMore">Learn more</a></p>
+                            </div>
+                        </li>
+                    `).join('')}
+                    ${results.news.length ? '</ul>' : ''}
+                        
+                    <!-- =====GENERAL SEARCH RESULTS===== -->
+                    ${results.generalInfo.length ? '<h3 class="search-overlay__category-heading">General Info</h3><ul class="search-overlay__list">' : ''}
+                    ${results.generalInfo.map(item => `
+                        <li class="search-overlay__listItem search-overlay__listItem--general">
+                            <a class="search-overlay__title" href="${item.permalink}">${item.title}</a>
+                        </li>
+                    `).join('')}
+                    ${results.generalInfo.length ? '</ul>' : ''}
+                </div>
             `);
             this.isSpinnerVisible = false;
-        }, () => {
-            this.resultsDiv.html('<p class="search-overlay__noResults">Whoops... something went wrong; please try again.</p>');
         });
     }
 
@@ -91,6 +122,7 @@ class Search {
         this.searchField.val('');
 	    setTimeout(() => this.searchField.focus(), 301);
         this.isOverlayOpen = true;
+        return false;
     }
 
     closeOverlay() {

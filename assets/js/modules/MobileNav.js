@@ -4,7 +4,7 @@ import $ from 'jquery';
 class MobileNav {
   constructor() {
     this.navToggle = $("#nav-toggle");
-    this.navList = $(".navigation__list");
+    this.navList = $(".nav__list");
     this.clickToClose = $("html");
     this.events();
   }
@@ -34,13 +34,13 @@ export default MobileNav;
 //     $('#nav-toggle').on('click', function(event) {
 //       event.stopPropagation();
 //       this.classList.toggle('active');
-//       $('.navigation__list').slideToggle();
+//       $('.nav__list').slideToggle();
 //     });
   
 //     $('html').click(function() {
 //       if($('#nav-toggle').hasClass('active')) {
 //         $('#nav-toggle').removeClass('active');
-//         $('.navigation__list').slideToggle();
+//         $('.nav__list').slideToggle();
 //       }
 //     });
 // });

@@ -10,6 +10,10 @@
     grid-template-columns: 5fr 1fr;
     align-items: center;
 
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: 1fr;       
+    }
+
     &__list {     
         justify-content: space-around;
         font-size: 3rem;
@@ -22,9 +26,10 @@
         }
 
         @media only screen and (max-width: $bp-medium) {            
-               width: 25%;
-               font-size: 4rem;
-               margin: 1rem auto;
+            width: 25%;
+            font-size: 4rem;
+            margin: 1rem auto;
+            text-align: center;
         }
     }
 
@@ -62,10 +67,11 @@
         margin-left: auto;
         display: flex;
         align-items: center;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         margin-right: 2rem;
 
         @media only screen and (max-width: $bp-medium) {
+            order: -1;
             justify-self: start;
             min-width: 25rem;
             margin-right: 0;
@@ -95,6 +101,36 @@
         white-space: nowrap;
     }    
 
+    &__user-profile {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__user-notification {
+        position: absolute;
+        top: -5px;
+        right: 15px;
+        display: inline-block;
+        text-align: center;
+        min-width: 15px;
+        min-height: 15px;
+        border-radius: 50%;
+        background-color: $color-brown;
+        color: $color-white-dark;
+        cursor: pointer;
+    }
+
+    &__user-img {
+        width: 100%;
+        object-fit: contain;
+        max-width: 3rem;
+        max-height: 3rem;
+        border-radius: 25%;
+        cursor: pointer; 
+    }
+
     &__user-name {
         margin: 0 1rem;
         color: $color-white-dark;
@@ -108,32 +144,6 @@
         }
     }
 
-    &__user-img {
-        min-width: 100%;
-        max-width: 3rem;
-        max-height: 3rem;
-        border-radius: 25%;
-        cursor: pointer;   
-    }
-
-    &__user-profile {
-        position: relative;
-    }
-    
-    &__user-notification {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        display: inline-block;
-        text-align: center;
-        min-width: 20px;
-        min-height: 20px;
-        border-radius: 50%;
-        background-color: $color-brown;
-        color: $color-white-dark;
-        cursor: pointer;
-    }
-
     &__mobile {
         display: none;
         position: absolute;
@@ -144,7 +154,7 @@
         width: 7rem;
 
         @media only screen and (max-width: $bp-medium) {
-            // Hamburger nav only visible under 1000px vw         
+            // Hamburger nav only visible under 800px vw         
             display: block;        
         }
     }
@@ -155,7 +165,7 @@
     left: 0;
     top: 35%;
     cursor: pointer;
-    padding: 2rem;
+    padding: 1rem;
     padding-left: 0;
 
     span,

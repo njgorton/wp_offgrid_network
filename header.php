@@ -18,24 +18,24 @@
 <!-- ==========================NAVIGATION============================== -->
 <nav class="nav">
     <ul class="nav__list">
-        <li class="nav__item"><a href="<?php echo site_url('/'); ?>" id="home" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="<?php echo esc_url(site_url('/')); ?>" id="home" class="nav__link">Home</a></li>
         <li class="nav__item"><a href="<?php echo get_post_type_archive_link('news'); ?>" class="nav__link">News</a></li>
         <li class="nav__item"><a href="<?php echo get_post_type_archive_link('events'); ?>" class="nav__link">Events</a></li>
         <li class="nav__item"><a href="#" class="nav__link">Forum</a></li>
-        <li class="nav__item"><a href="<?php echo site_url('/about-ogn'); ?>" class="nav__link">About</a></li>
+        <li class="nav__item"><a href="<?php echo esc_url(site_url('/about-ogn')); ?>" class="nav__link">About</a></li>
     </ul>
 
     <div class="nav__user-menu">
-        <div class="nav__search js-search-trigger">
+        <a class="nav__search js-search-trigger" href="<?php echo esc_url(site_url('/search')); ?>">
             <i class="fas fa-search"></i>
-        </div> 
+        </a> 
 
         <p class="nav__user-text">Logged in as:</p>
-        <p class="nav__user-name" tabindex="0">njgorton</p>
 
         <div class="nav__user-profile"> 
-            <img src="<?php bloginfo('stylesheet_directory');?>/assets/img/user-img.jpg" alt="User's profile Image" class="nav__user-img" tabindex="0">                                 
-            <span class="nav__user-notification">2</span>   
+            <span class="nav__user-notification">2</span>
+            <img src="<?php bloginfo('stylesheet_directory');?>/assets/img/user-img.jpg" alt="User's profile Image" class="nav__user-img" tabindex="0">                                  
+            <p class="nav__user-name">njgorton</p>  
         </div>                                                 
     </div>
 

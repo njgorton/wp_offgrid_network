@@ -1,0 +1,101 @@
+//===========================================================
+// This is for the default, non-javascript, WordPress-Search.
+//===========================================================
+
+.wp-search {
+
+    &__form {
+        background: rgba(0,0,0, .4);
+        padding: 3rem;
+        border-radius: 2px;
+        box-shadow: 1rem 1rem 2rem rgba(0,0,0, .5);
+        width: 70%;
+        margin: 5rem auto;
+
+        @media only screen and (max-width: $bp-medium-large) {
+            width: 100%;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            padding: 1.5rem;
+        }
+    }
+
+    &__label {
+        display: inline-block;
+        font-size: 2.5rem;
+        color: $color-tan;
+        background-color: $color-dark;
+        padding: 5px 10px;
+        box-shadow: 1rem 1rem 2rem rgba(0,0,0, .7);
+        border-radius: 2px;
+        margin-bottom: 3rem;
+
+        @media only screen and (max-width: $bp-smaller) {
+            font-size: 2.2rem;
+        }
+    }
+
+    &__inputBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__searchInput {
+        width: 70%;
+        font-size: 2rem;
+        padding: 1rem;
+        border: none;
+        border-radius: 2px;
+        box-shadow: 1rem 1rem 2rem rgba(0,0,0, .5);
+
+        @media only screen and (max-width: $bp-smaller) {
+            width: 80%;
+            font-size: 1.6rem;
+        }
+    }
+
+    &__searchSubmit {
+        width: 30%;
+        font-size: 2rem;
+        background-color: $color-brown;
+        color: $color-white-dark;
+        padding: 1rem;
+        border: none;
+        border-radius: 2px;
+        box-shadow: 1rem 1rem 1rem rgba(0,0,0, .5);
+        margin-top: 3rem;
+        transition: all .1s ease-in-out;
+
+        &:hover {
+            background-color: $color-brown * 1.1;
+            box-shadow: 1rem 1rem 2rem rgba(0,0,0, .7);
+            transform: scale(1.05);
+        }
+
+        &:active {
+            box-shadow: 1rem 1rem 1rem rgba(0,0,0, .5);
+            transform: scale(1);
+        }
+    }
+    // FOR SEARCH RESULTS PAGE
+    &__list {
+        list-style: none;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+      }
+
+    &__category {
+        position: absolute;
+        bottom: 2rem;
+        left: 0;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background-color: $color-dark;
+        color: $color-white-dark;
+        padding: 2px 3px;
+        box-shadow: .5rem .5rem 2rem rgba(0,0,0, .5);
+    }
+}
