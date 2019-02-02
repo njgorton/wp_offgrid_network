@@ -1,4 +1,8 @@
-.search {
+//=======================================
+// This is for Javascript-enabled search.
+//=======================================
+
+.search-overlay {
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 1000;
@@ -168,7 +172,10 @@
     }
 
     &--general {
+      margin: 5rem auto;
       margin-bottom: 3rem;
+      border-bottom: 1px solid $color-dark;
+      padding-bottom: 2rem;
     }
   }
 
@@ -199,6 +206,7 @@
       font-size: 3rem;
       text-decoration: none;
       margin-right: 1rem;
+      box-shadow: .5rem .5rem 1rem rgba(0,0,0, .5);
 
       @media only screen and (max-width: $bp-smaller) {
         font-size: 2rem;
@@ -229,11 +237,14 @@
   &__content {
     margin-top: 3rem;
     border-bottom: 1px solid $color-dark;
-    padding-bottom: 4rem;
+    padding-bottom: 8rem;
 
     @media only screen and (max-width: $bp-smallest) {
       display: none;
     }
+
+    // For ".wp-search__category" in _wp-search.scss
+    position: relative;
   }
 
   &__image {
