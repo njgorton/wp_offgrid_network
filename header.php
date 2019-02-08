@@ -30,13 +30,26 @@
             <i class="fas fa-search"></i>
         </a> 
 
-        <p class="nav__user-text">Logged in as:</p>
+        <?php if(is_user_logged_in()) { ?>
 
-        <div class="nav__user-profile"> 
-            <span class="nav__user-notification">2</span>
-            <img src="<?php bloginfo('stylesheet_directory');?>/assets/img/user-img.jpg" alt="User's profile Image" class="nav__user-img" tabindex="0">                                  
-            <p class="nav__user-name">njgorton</p>  
-        </div>                                                 
+            <a href="#" class="nav__user-profile"> 
+                <span class="nav__user-img"><?php echo get_avatar(get_current_user_id(), 40); ?></span>
+
+                <span class="nav__user-name">
+                    <?php 
+                        $current_user = wp_get_current_user();
+                        echo $current_user->display_name;
+                    ?>
+                </span>                             
+            </a>  
+            <a href="<?php echo wp_logout_url(); ?>" class="nav__userBtn nav__userBtn--logout">Log out?</a>
+
+          <?php } else { ?>
+
+            <a href="<?php echo wp_login_url(); ?>" class="nav__userBtn nav__userBtn--login">Login</a>  
+            <a href="<?php echo wp_registration_url(); ?>" class="nav__userBtn nav__userBtn--signup">Sign Up!</a>  
+             
+          <?php } ?>                                               
     </div>
 
     <div class="nav__mobile">

@@ -94,53 +94,107 @@
             color: $color-white-dark;
             transform: scale(1.1);
         }
-    }
-
-    &__user-text {
-        color: $color-tan;
-        white-space: nowrap;
-    }    
+    }   
 
     &__user-profile {
-        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
+        transition: all .1s ease-in;
 
-    &__user-notification {
-        position: absolute;
-        top: -5px;
-        right: 15px;
-        display: inline-block;
-        text-align: center;
-        min-width: 15px;
-        min-height: 15px;
-        border-radius: 50%;
-        background-color: $color-brown;
-        color: $color-white-dark;
-        cursor: pointer;
-    }
-
-    &__user-img {
-        width: 100%;
-        object-fit: contain;
-        max-width: 3rem;
-        max-height: 3rem;
-        border-radius: 25%;
-        cursor: pointer; 
-    }
-
-    &__user-name {
-        margin: 0 1rem;
-        color: $color-white-dark;
-        border-bottom: 1px solid $color-orange;
-        cursor: pointer;
+        &:link,
+        &:visited {
+            text-decoration: none;
+        }
 
         &:hover,
         &:focus {
-            color: $color-orange;
-            border-bottom: 1px solid $color-white-dark;
+            .nav__user-name {
+                color: $color-orange;
+                border-bottom: 1px solid $color-white-dark;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__user-img img {
+        border-radius: 50%;
+        border: 1px solid $color-orange; 
+        box-shadow: .5rem .5rem 1rem rgba(0,0,0, .5);
+    }
+
+    &__user-name {
+        white-space: nowrap;
+        margin: 0 1rem;
+        color: $color-white-dark;
+        border-bottom: 1px solid $color-orange;
+    }
+
+    &__userBtn {
+        &:link,
+        &:visited {
+            text-decoration: none;
+            color: $color-white-dark;
+            white-space: nowrap;
+            border-radius: 2px;
+            box-shadow: .5rem .5rem 1rem rgba(0,0,0, .5);
+            transition: all .1s ease-in;
+        }
+
+        &--logout {
+            background-color: $color-brown * .8;
+            font-size: 1.4rem;
+            font-family: $font-content;
+            padding: 2px 5px; 
+
+            &:hover {
+                background-color: $color-brown * .9;
+                box-shadow: .7rem .7rem 2rem rgba(0,0,0, .5);
+                transform: scale(1.05);
+            }
+
+            &:active {
+                box-shadow: .5rem .5rem 1rem rgba(0,0,0, .5);
+                transform: none;
+            }
+        }
+
+        &--login {
+            background-color: $color-brown * .8;    
+            padding: 5px 10px;
+            margin: 0 1rem;
+            font-size: 1.6rem;
+            font-family: $font-heading;
+
+            &:hover {
+                background-color: $color-brown * .9;
+                box-shadow: .7rem .7rem 2rem rgba(0,0,0, .5);
+                transform: scale(1.05);
+            }
+
+            &:active {
+                box-shadow: .5rem .5rem 1rem rgba(0,0,0, .5);
+                transform: none;
+            }
+        }
+
+        &--signup {
+            background-color: $color-orange * .8;
+            padding: 5px 10px;
+            margin: 0 1rem;
+            font-size: 1.6rem;
+            font-family: $font-heading;
+
+            &:hover {
+                background-color: $color-orange * .9;
+                box-shadow: .7rem .7rem 1rem rgba(0,0,0, .5);
+                transform: scale(1.05);
+            }
+
+            &:active {
+                box-shadow: .5rem .5rem 1rem rgba(0,0,0, .5);
+                transform: none;
+            }
         }
     }
 
@@ -150,8 +204,8 @@
         top: 0;
         right: 0;
         background: $color-dark;
-        height: 7rem;
-        width: 7rem;
+        height: 6rem;
+        width: 6rem;
 
         @media only screen and (max-width: $bp-medium) {
             // Hamburger nav only visible under 800px vw         
