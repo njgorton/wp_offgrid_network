@@ -1,0 +1,191 @@
+//=================================================
+// To Override and Customize WordPress Login Pages.
+//=================================================
+
+body.login {
+    background-image: url(./assets/img/topo-map.png);
+}
+
+#login {
+    width: 100%;
+}
+
+.login h1 a {
+    &:link,
+    &:visited {
+        background-image: none;
+        background-color: rgba(0,0,0, .7);
+        box-shadow: 1rem 1rem 2rem rgba(0,0,0, .5);
+        text-shadow: 4px 4px 8px rgba(0,0,0, .5);
+        color: $color-orange;
+        font-size: 7rem;
+        font-family: $font-heading;
+        font-weight: 700;
+        text-indent: 0;
+        width: 70%;
+        height: auto;
+        padding: 3rem;
+
+        @media only screen and (max-width: $bp-medium-large) {
+            font-size: 5rem;
+        }
+
+        @media only screen and (max-width: $bp-medium-small) {
+            width: 90%;
+        }
+
+        @media only screen and (max-width: $bp-smaller) {
+            font-size: 3.5rem;
+        }
+    }
+}
+
+.login .message {
+    font-size: 2rem;
+    color: $color-white-dark;
+    background-color: rgba(0,0,0, .6);
+    box-shadow: 1rem 1rem 2rem rgba(0,0,0, .7);
+    border-left: 7px solid $color-orange;
+    width: 30%;
+    margin: 5rem auto;
+    text-align: center;
+    padding: 1rem;
+
+    @media only screen and (max-width: $bp-medium-small) {
+        width: 50%;
+    }
+
+    @media only screen and (max-width: $bp-smaller) {
+        font-size: 1.8rem;
+        width: 80%;
+    }
+}
+
+.login form {
+    width: 50%;
+    background-color: rgba(0,0,0, .6);
+    box-shadow: 1rem 1rem 2rem rgba(0,0,0, .7);
+    border-left: 7px solid $color-orange;
+    margin: 5rem auto;
+    padding: 3rem;
+
+    @media only screen and (max-width: $bp-medium-small) {
+        width: 70%;
+        padding: 1.5rem;
+    }
+
+    @media only screen and (max-width: $bp-smaller) {
+        width: 80%;
+    }
+}
+
+.login label {
+    font-size: 2.3rem;
+    color: $color-tan;
+    text-shadow: 2px 2px 4px rgba(0,0,0, .3);
+
+    @media only screen and (max-width: $bp-medium-large) {
+        font-size: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-smaller) {
+        font-size: 1.8rem;
+    }
+}
+
+.login form .input {
+    max-width: 70%;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 1rem 1rem 2rem rgba(0,0,0, .3);
+    margin-bottom: 3rem;
+    font-size: 2.3rem;
+
+    @media only screen and (max-width: $bp-medium-large) {
+        font-size: 2rem;
+        padding: .5rem;
+    }
+
+    @media only screen and (max-width: $bp-smaller) {
+        font-size: 1.8rem;
+        max-width: 90%;
+    }
+}
+
+.login form .forgetmenot label {
+    font-size: 2.3rem;
+
+    @media only screen and (max-width: $bp-medium-large) {
+        font-size: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-smaller) {
+        font-size: 1.8rem;
+    }
+}
+
+body.login .button-primary {
+    background-color: $color-orange * .8;
+    color: $color-white-dark;
+    font-size: 2rem;
+    border: none;
+    box-shadow: 1rem 1rem 1rem rgba(0,0,0, .3);
+    text-shadow: none;
+    width: 20rem;
+    min-height: 5rem;
+
+    @media only screen and (max-width: $bp-medium-large) {
+        width: 10rem;
+        min-height: 3rem;
+    }
+}
+  
+  body.login .button-primary:hover,
+  body.login .button-primary:active,
+  body.login .button-primary:focus {
+    background-color: $color-orange * .9;
+    color: $color-white-dark;
+    box-shadow: 1rem 1rem 2rem rgba(0,0,0, .5);
+}
+
+#reg_passmail {
+    font-size: 1.8rem;
+    color: $color-white-dark;
+}
+
+.login #nav,
+.login #backtoblog {
+    font-size: 2rem;
+    text-align: center;
+    margin: 5rem 0;
+
+    @media only screen and (max-width: $bp-medium-large) {
+        font-size: 1.8rem;
+    }
+}
+
+.login #nav a,
+.login #backtoblog a {
+    color: $color-brown;
+}
+
+.login #nav a:hover,
+.login #nav a:active,
+.login #nav a:focus,
+.login #backtoblog a:hover,
+.login #backtoblog a:active,
+.login #backtoblog a:focus {
+    color: $color-orange;
+}
+
+.privacy-policy-link {
+    font-size: 1.5rem;
+    color: $color-dark;
+}
+
+.privacy-policy-link:hover,
+.privacy-policy-link:active,
+.privacy-policy-link:focus {
+    color: $color-orange;
+    text-decoration: none;
+}

@@ -42,13 +42,22 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .nav__user-menu{margin-left:auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;font-size:1.4rem;margin-right:2rem}
 .nav__search{color:#f29130;cursor:pointer;font-size:2rem;margin:1rem 2rem}
 .nav__search:hover{color:#e1e4d9;-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1)}
-.nav__user-text{color:#e59f71;white-space:nowrap}
-.nav__user-profile{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
-.nav__user-notification{position:absolute;top:-5px;right:15px;display:inline-block;text-align:center;min-width:15px;min-height:15px;border-radius:50%;background-color:#ba5a31;color:#e1e4d9;cursor:pointer}
-.nav__user-img{width:100%;-o-object-fit:contain;object-fit:contain;max-width:3rem;max-height:3rem;border-radius:25%;cursor:pointer}
-.nav__user-name{margin:0 1rem;color:#e1e4d9;border-bottom:1px solid #f29130;cursor:pointer}
-.nav__user-name:hover,.nav__user-name:focus{color:#f29130;border-bottom:1px solid #e1e4d9}
-.nav__mobile{display:none;position:absolute;top:0;right:0;background:#353535;height:7rem;width:7rem}
+.nav__user-profile{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-transition:all .1s ease-in;transition:all .1s ease-in}
+.nav__user-profile:link,.nav__user-profile:visited{text-decoration:none}
+.nav__user-profile:hover .nav__user-name,.nav__user-profile:focus .nav__user-name{color:#f29130;border-bottom:1px solid #e1e4d9;text-decoration:none}
+.nav__user-img img{border-radius:50%;border:1px solid #f29130;box-shadow:.5rem .5rem 1rem rgba(0,0,0,0.5)}
+.nav__user-name{white-space:nowrap;margin:0 1rem;color:#e1e4d9;border-bottom:1px solid #f29130}
+.nav__userBtn:link,.nav__userBtn:visited{text-decoration:none;color:#e1e4d9;white-space:nowrap;border-radius:2px;box-shadow:.5rem .5rem 1rem rgba(0,0,0,0.5);-webkit-transition:all .1s ease-in;transition:all .1s ease-in}
+.nav__userBtn--logout{background-color:#954827;font-size:1.4rem;font-family:"Lato",sans-serif;padding:2px 5px}
+.nav__userBtn--logout:hover{background-color:#a7512c;box-shadow:.7rem .7rem 2rem rgba(0,0,0,0.5);-webkit-transform:scale(1.05);-ms-transform:scale(1.05);transform:scale(1.05)}
+.nav__userBtn--logout:active{box-shadow:.5rem .5rem 1rem rgba(0,0,0,0.5);-webkit-transform:none;-ms-transform:none;transform:none}
+.nav__userBtn--login{background-color:#954827;padding:5px 10px;margin:0 1rem;font-size:1.6rem;font-family:"Cabin Sketch",cursive}
+.nav__userBtn--login:hover{background-color:#a7512c;box-shadow:.7rem .7rem 2rem rgba(0,0,0,0.5);-webkit-transform:scale(1.05);-ms-transform:scale(1.05);transform:scale(1.05)}
+.nav__userBtn--login:active{box-shadow:.5rem .5rem 1rem rgba(0,0,0,0.5);-webkit-transform:none;-ms-transform:none;transform:none}
+.nav__userBtn--signup{background-color:#c27426;padding:5px 10px;margin:0 1rem;font-size:1.6rem;font-family:"Cabin Sketch",cursive}
+.nav__userBtn--signup:hover{background-color:#da832b;box-shadow:.7rem .7rem 1rem rgba(0,0,0,0.5);-webkit-transform:scale(1.05);-ms-transform:scale(1.05);transform:scale(1.05)}
+.nav__userBtn--signup:active{box-shadow:.5rem .5rem 1rem rgba(0,0,0,0.5);-webkit-transform:none;-ms-transform:none;transform:none}
+.nav__mobile{display:none;position:absolute;top:0;right:0;background:#353535;height:6rem;width:6rem}
 #nav-toggle{position:absolute;left:0;top:35%;cursor:pointer;padding:1rem;padding-left:0}
 #nav-toggle span,#nav-toggle span::before,#nav-toggle span::after{height:2px;width:4rem;background:#f29130;position:absolute;display:block;content:'';-webkit-transition:hover .3s ease,-webkit-transform .3s ease-in-out;transition:hover .3s ease,-webkit-transform .3s ease-in-out;transition:transform .3s ease-in-out,hover .3s ease;transition:transform .3s ease-in-out,hover .3s ease,-webkit-transform .3s ease-in-out}
 #nav-toggle span::before{top:-1rem}
@@ -148,6 +157,22 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .wp-search__searchSubmit:active{box-shadow:1rem 1rem 1rem rgba(0,0,0,0.5);-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1)}
 .wp-search__list{list-style:none;margin-top:3rem;margin-bottom:3rem}
 .wp-search__category{position:absolute;bottom:2rem;left:0;font-size:1.4rem;text-transform:uppercase;letter-spacing:1px;background-color:#353535;color:#e1e4d9;padding:2px 3px;box-shadow:.5rem .5rem 2rem rgba(0,0,0,0.5)}
+body.login{background-image:url(./assets/img/topo-map.png)}
+#login{width:100%}
+.login h1 a:link,.login h1 a:visited{background-image:none;background-color:rgba(0,0,0,0.7);box-shadow:1rem 1rem 2rem rgba(0,0,0,0.5);text-shadow:4px 4px 8px rgba(0,0,0,0.5);color:#f29130;font-size:7rem;font-family:"Cabin Sketch",cursive;font-weight:700;text-indent:0;width:70%;height:auto;padding:3rem}
+.login .message{font-size:2rem;color:#e1e4d9;background-color:rgba(0,0,0,0.6);box-shadow:1rem 1rem 2rem rgba(0,0,0,0.7);border-left:7px solid #f29130;width:30%;margin:5rem auto;text-align:center;padding:1rem}
+.login form{width:50%;background-color:rgba(0,0,0,0.6);box-shadow:1rem 1rem 2rem rgba(0,0,0,0.7);border-left:7px solid #f29130;margin:5rem auto;padding:3rem}
+.login label{font-size:2.3rem;color:#e59f71;text-shadow:2px 2px 4px rgba(0,0,0,0.3)}
+.login form .input{max-width:70%;border-radius:10px;padding:1rem;box-shadow:1rem 1rem 2rem rgba(0,0,0,0.3);margin-bottom:3rem;font-size:2.3rem}
+.login form .forgetmenot label{font-size:2.3rem}
+body.login .button-primary{background-color:#c27426;color:#e1e4d9;font-size:2rem;border:0;box-shadow:1rem 1rem 1rem rgba(0,0,0,0.3);text-shadow:none;width:20rem;min-height:5rem}
+body.login .button-primary:hover,body.login .button-primary:active,body.login .button-primary:focus{background-color:#da832b;color:#e1e4d9;box-shadow:1rem 1rem 2rem rgba(0,0,0,0.5)}
+#reg_passmail{font-size:1.8rem;color:#e1e4d9}
+.login #nav,.login #backtoblog{font-size:2rem;text-align:center;margin:5rem 0}
+.login #nav a,.login #backtoblog a{color:#ba5a31}
+.login #nav a:hover,.login #nav a:active,.login #nav a:focus,.login #backtoblog a:hover,.login #backtoblog a:active,.login #backtoblog a:focus{color:#f29130}
+.privacy-policy-link{font-size:1.5rem;color:#353535}
+.privacy-policy-link:hover,.privacy-policy-link:active,.privacy-policy-link:focus{color:#f29130;text-decoration:none}
 .about{background-color:#ba5a31;color:#353535;padding:7rem 5rem}
 .about__text{font-size:2.1rem;line-height:1.5;text-align:center}
 .news{background-image:url(./assets/img/cropRows-large.jpg);background-size:100% 100%;padding-bottom:10rem}
@@ -389,6 +414,12 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .search-overlay__close{font-size:4.5rem}
 .search-overlay__resultsDiv{width:80%}
 .wp-search__form{width:100%}
+.login h1 a:link,.login h1 a:visited{font-size:5rem}
+.login label{font-size:2rem}
+.login form .input{font-size:2rem;padding:.5rem}
+.login form .forgetmenot label{font-size:2rem}
+body.login .button-primary{width:10rem;min-height:3rem}
+.login #nav,.login #backtoblog{font-size:1.8rem}
 .news__content{padding:0 3rem}
 .news-card{min-height:45rem;padding:1.5rem;margin-right:3rem}
 .news-card__heading{font-size:1.8rem}
@@ -465,6 +496,9 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .search-overlay__inputArea{width:90%}
 .search-overlay__search-term{font-size:2.5rem}
 .search-overlay__listItem{width:100%}
+.login h1 a:link,.login h1 a:visited{width:90%}
+.login .message{width:50%}
+.login form{width:70%;padding:1.5rem}
 .news{background-image:url(./assets/img/cropRows-small.jpg)}
 .news__heading{margin-left:2rem;font-size:3rem}
 .events__heading{margin:0 2rem;font-size:3rem}
@@ -553,6 +587,12 @@ body{background-color:#1b1b1b;max-width:1800px;margin:0 auto;overflow-x:hidden}
 .wp-search__form{padding:1.5rem}
 .wp-search__label{font-size:2.2rem}
 .wp-search__searchInput{width:80%;font-size:1.6rem}
+.login h1 a:link,.login h1 a:visited{font-size:3.5rem}
+.login .message{font-size:1.8rem;width:80%}
+.login form{width:80%}
+.login label{font-size:1.8rem}
+.login form .input{font-size:1.8rem;max-width:90%}
+.login form .forgetmenot label{font-size:1.8rem}
 .news__content{padding:0 5rem}
 .news__btn{width:50%}
 .news__btn:hover{width:60%}
